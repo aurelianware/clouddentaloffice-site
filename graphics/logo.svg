@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="cdoTitle">
+  <title id="cdoTitle">Cloud Dental Office</title>
+  <defs>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7adcdc"/>
+      <stop offset="50%" stop-color="#c0ffff"/>
+      <stop offset="100%" stop-color="#7adcdc"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 50 L300 50 L350 100 L350 300 L300 350 L100 350 L50 300 L50 100 Z" fill="#0f0f0f" stroke="url(#chrome)" stroke-width="3"/>
+  <rect x="118" y="150" width="32" height="120" rx="4" fill="#1a3a3a"/>
+  <rect x="168" y="128" width="32" height="142" rx="4" fill="#00ffff"/>
+  <rect x="218" y="164" width="32" height="106" rx="4" fill="#1a3a3a"/>
+  <rect x="268" y="142" width="32" height="128" rx="4" fill="#163333"/>
+  <rect x="168" y="286" width="64" height="3" fill="#00ffff" opacity="0.7"/>
+</svg>

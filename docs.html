@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docs / start — Cloud Dental Office</title>
+  <meta name="description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
+  <link rel="canonical" href="https://clouddentaloffice.com/docs" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cloud Dental Office" />
+  <meta property="og:url" content="https://clouddentaloffice.com/docs" />
+  <meta property="og:title" content="Docs / start — Cloud Dental Office" />
+  <meta property="og:description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
+  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Docs / start — Cloud Dental Office" />
+  <meta name="twitter:description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cloud Dental Office",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Cloud (Azure, Kubernetes)",
+    "url": "https://clouddentaloffice.com",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
+    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
+    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/sentinel.css" />
+  <link rel="stylesheet" href="/css/conversion.css" />
+  <script src="/js/mobile-nav.js"></script>
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
+        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-logo-lockup">
+          <span class="nav-logo-text">Cloud Dental Office</span>
+          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <ul id="mainNav">
+          <li><a href="/platform">Platform</a></li>
+          <li><a href="/scheduling">Scheduling APIs</a></li>
+          <li><a href="/claims">Claims</a></li>
+          <li><a href="/architecture">Architecture</a></li>
+          <li><a href="/pilot">Pilot</a></li>
+          <li><a href="/docs" aria-current="page">Docs</a></li>
+          <li><a href="/trust">Trust</a></li>
+          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main-content">
+
+    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Docs / start">
+      <div class="hero-circuit-bg" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="section-eyebrow">Docs / start</span>
+        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Clone it. Run it. Read the intake contract.</h1>
+        <p class="hero-subheadline" style="margin-bottom:32px;">The product repository is the documentation of record. This page is the shortest path in.</p>
+        <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+      </div>
+    </header>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-eyebrow">Quick start</span>
+          <h2 class="section-title">Docker Compose</h2>
+        </div>
+        <pre><code>git clone https://github.com/aurelianware/clouddentaloffice.git
+cd clouddentaloffice
+docker-compose up -d</code></pre>
+        <p>Portal on port 5000. API gateway on 5200. Per-service Swagger on 510x. Each service defaults to SQLite locally — no database setup required.</p>
+      </div>
+    </section>
+    <section style="background:#0a0a0a;">
+      <div class="section-wrapper">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Build and test</h3>
+            <p><code>dotnet restore CloudDentalOffice.sln</code><br><code>dotnet build CloudDentalOffice.sln --no-restore</code><br><code>dotnet test CloudDentalOffice.sln --no-restore --no-build</code></p>
+            <p>CI on main: Build and Tests. Portal, SchedulingService, and IntakeService test projects are in the solution. Zocdoc.IntegrationTests is not — it needs partner sandbox credentials and is dispatched separately.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Local Kubernetes</h3>
+            <p><code>./scripts/deploy-local-k8s.sh</code><br><code>kubectl port-forward -n clouddental service/portal 5000:5000</code></p>
+            <p>Kind cluster named docker-desktop by default. Credentials are generated in-cluster, not stored in git.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Public APIs</h3>
+            <p>docs/architecture/public-availability-api.md in the product repo. IntakeService source under src/Services/IntakeService. This marketing site does not duplicate the OpenAPI — it points at the source.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-wrapper">
+        <p><a href="/scheduling" class="button button-secondary">Scheduling APIs</a>
+        <a href="/architecture" class="button button-secondary">Architecture</a>
+        <a href="/trust" class="button button-secondary">Trust</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">github.com/aurelianware/clouddentaloffice</a></p>
+      </div>
+    </section>
+    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
+      <h2 style="color:#fff; text-shadow:none;">If the public contract matches a channel you run, talk about a pilot.</h2>
+      <p>Email sales@clouddentaloffice.com</p>
+      <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
+    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
+    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
+    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Cloud Dental Office</h4>
+          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
+          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
+          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/platform">Platform</a></li>
+            <li><a href="/scheduling">Scheduling APIs</a></li>
+            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/architecture">Architecture</a></li>
+            <li><a href="/pilot">Pilot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Docs</h5>
+          <ul>
+            <li><a href="/docs">Docs / start</a></li>
+            <li><a href="/trust">Trust</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
+            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/site.js"></script>
+</body>
+</html>

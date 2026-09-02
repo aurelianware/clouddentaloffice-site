@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claims &amp; interoperability — Cloud Dental Office</title>
+  <meta name="description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <link rel="canonical" href="https://clouddentaloffice.com/claims" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cloud Dental Office" />
+  <meta property="og:url" content="https://clouddentaloffice.com/claims" />
+  <meta property="og:title" content="Claims &amp; interoperability — Cloud Dental Office" />
+  <meta property="og:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Claims &amp; interoperability — Cloud Dental Office" />
+  <meta name="twitter:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cloud Dental Office",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Cloud (Azure, Kubernetes)",
+    "url": "https://clouddentaloffice.com",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
+    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
+    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/sentinel.css" />
+  <link rel="stylesheet" href="/css/conversion.css" />
+  <script src="/js/mobile-nav.js"></script>
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
+        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-logo-lockup">
+          <span class="nav-logo-text">Cloud Dental Office</span>
+          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <ul id="mainNav">
+          <li><a href="/platform">Platform</a></li>
+          <li><a href="/scheduling">Scheduling APIs</a></li>
+          <li><a href="/claims" aria-current="page">Claims</a></li>
+          <li><a href="/architecture">Architecture</a></li>
+          <li><a href="/pilot">Pilot</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/trust">Trust</a></li>
+          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main-content">
+
+    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Claims &amp; interoperability">
+      <div class="hero-circuit-bg" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="section-eyebrow">Claims & interoperability</span>
+        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">The practice sees outcomes. The payer platform sees X12.</h1>
+        <p class="hero-subheadline" style="margin-bottom:32px;">Cloud Dental Office is the practice surface. Cloud Health Office owns payer connectivity and claim intelligence. Staff see lifecycle status, a timeline, patient responsibility, and posted financials — not clearinghouse vendors.</p>
+        <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+      </div>
+    </header>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header">
+          <span class="section-eyebrow">What ships</span>
+          <h2 class="section-title">Honest status. No invented coverage.</h2>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th>Capability</th><th>Surface</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Claim submission</td><td>Cloud Health Office</td><td>Implemented</td></tr>
+              <tr><td>Claim lifecycle</td><td><code>GET /api/claims/{claimId}/intelligence</code></td><td>Implemented</td></tr>
+              <tr><td>Posted financials</td><td>Patient ledger from remittance</td><td>Implemented</td></tr>
+              <tr><td>837D generation</td><td>ClaimsService (clean-room X12)</td><td>Implemented</td></tr>
+              <tr><td>Eligibility</td><td>Payer transaction router</td><td>In progress</td></tr>
+              <tr><td>Predetermination / advanced EOB</td><td>Reserved</td><td>Planned</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section style="background:#0a0a0a;">
+      <div class="section-wrapper">
+        <div class="section-header">
+          <span class="section-eyebrow">Transactions</span>
+          <h2 class="section-title">Dental X12, generated in-house.</h2>
+          <p class="section-subtitle">CloudDentalOffice.EdiCommon is a clean-room parser and generator. No vendor SDK in the claim path.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>837D</h3><p>Dental claim generation from the practice record. Submit to Cloud Health Office. Follow the claim in the portal through intelligence, not raw X12.</p></div>
+          <div class="feature-card"><h3>270 / 271</h3><p>Eligibility verification. The EligibilityService exists. Live payer routing is in progress. We do not claim real-time coverage we have not finished.</p></div>
+          <div class="feature-card"><h3>835 / ERA</h3><p>Remittance processing, claim matching, auto-posting to the patient ledger. Posted billed, insurance, and contractual amounts.</p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-eyebrow">Sister platform</span>
+          <h2 class="section-title">Cloud Health Office for payers.</h2>
+          <p class="section-subtitle" style="margin:0; max-width:none;">Together they close provider ↔ payer interoperability. The browser never calls Cloud Health Office. The portal does.</p>
+        </div>
+        <div class="feature-card">
+          <pre><code>CloudDentalOffice
+  → submit claim to CloudHealthOffice
+  → GET /api/claims/{claimId}/intelligence
+  → practice-facing lifecycle
+     (status, timeline, patient responsibility)
+  → post billed / insurance / contractual amounts
+     to the patient ledger</code></pre>
+          <p>Configure CloudHealthOffice BaseUrl, IntelligencePath, and Enabled. Override the base URL when the payer platform uses a different namespace.</p>
+          <p><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com &rarr;</a> · <a href="https://github.com/aurelianware/cloudhealthoffice" target="_blank" rel="noopener noreferrer">github.com/aurelianware/cloudhealthoffice &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
+      <h2 style="color:#fff; text-shadow:none;">Inspect the claim path. Then talk.</h2>
+      <p>No invented clearinghouse certifications. No invented volumes.</p>
+      <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
+    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
+    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
+    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Cloud Dental Office</h4>
+          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
+          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
+          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/platform">Platform</a></li>
+            <li><a href="/scheduling">Scheduling APIs</a></li>
+            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/architecture">Architecture</a></li>
+            <li><a href="/pilot">Pilot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Docs</h5>
+          <ul>
+            <li><a href="/docs">Docs / start</a></li>
+            <li><a href="/trust">Trust</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
+            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/site.js"></script>
+</body>
+</html>
