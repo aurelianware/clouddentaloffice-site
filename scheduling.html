@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scheduling &amp; public APIs — Cloud Dental Office</title>
+  <meta name="description" content="Vendor-neutral public availability and booking intake. GET slots with opaque tokens. POST booking-requests returns 202. Zocdoc is a channel adapter, not a second calendar." />
+  <link rel="canonical" href="https://clouddentaloffice.com/scheduling" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cloud Dental Office" />
+  <meta property="og:url" content="https://clouddentaloffice.com/scheduling" />
+  <meta property="og:title" content="Scheduling &amp; public APIs — Cloud Dental Office" />
+  <meta property="og:description" content="Vendor-neutral public availability and booking intake. GET slots with opaque tokens. POST booking-requests returns 202. Zocdoc is a channel adapter, not a second calendar." />
+  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scheduling &amp; public APIs — Cloud Dental Office" />
+  <meta name="twitter:description" content="Vendor-neutral public availability and booking intake. GET slots with opaque tokens. POST booking-requests returns 202. Zocdoc is a channel adapter, not a second calendar." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cloud Dental Office",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Cloud (Azure, Kubernetes)",
+    "url": "https://clouddentaloffice.com",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
+    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
+    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/sentinel.css" />
+  <link rel="stylesheet" href="/css/conversion.css" />
+  <script src="/js/mobile-nav.js"></script>
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
+        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-logo-lockup">
+          <span class="nav-logo-text">Cloud Dental Office</span>
+          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <ul id="mainNav">
+          <li><a href="/platform">Platform</a></li>
+          <li><a href="/scheduling" aria-current="page">Scheduling APIs</a></li>
+          <li><a href="/claims">Claims</a></li>
+          <li><a href="/architecture">Architecture</a></li>
+          <li><a href="/pilot">Pilot</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/trust">Trust</a></li>
+          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main-content">
+
+    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Scheduling APIs">
+      <div class="hero-circuit-bg" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="section-eyebrow">Scheduling APIs</span>
+        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Partners read availability. They never become the calendar.</h1>
+        <p class="hero-subheadline" style="margin-bottom:32px;">A vendor-neutral public contract already exists. Practice websites and marketplace partners consume it. Staff remain the authority. BookingRequest is not an Appointment.</p>
+        <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+      </div>
+    </header>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header">
+          <span class="section-eyebrow">The contract</span>
+          <h2 class="section-title">Two public resources. One engine.</h2>
+          <p class="section-subtitle">Every calculation flows through ISchedulingAvailabilityService in SchedulingService. There is no parallel availability engine. A channel adapter — including a Zocdoc adapter — plugs in over the same service.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <p style="font-family:ui-monospace,monospace; font-size:0.78rem; color:#00ffff;">GET /api/public/v1/availability</p>
+            <h3>JSON slots</h3>
+            <p>Practice timezone (for example America/Phoenix). Zone-offset start and end. durationMinutes. Each slot carries an opaque, encrypted availabilityToken. Query by public slugs — providerId, locationId, appointmentTypeId — not database ids.</p>
+          </div>
+          <div class="feature-card">
+            <p style="font-family:ui-monospace,monospace; font-size:0.78rem; color:#00ffff;">GET /api/public/v1/availability.ics</p>
+            <h3>iCalendar feed</h3>
+            <p>The same free time as the JSON resource. Only free and bookable slots are exposed. A booked or blocked period simply yields no slot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background:#0a0a0a;">
+      <div class="section-wrapper">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-eyebrow">Booking intent</span>
+          <h2 class="section-title">POST returns 202. Staff approve later.</h2>
+        </div>
+        <pre><code>POST /api/public/booking-requests
+Authorization: Bearer <key>   # or X-Api-Key
+
+{
+  "name": "Jane Doe",
+  "phone": "480-555-0100",
+  "email": "jane@example.com",
+  "patientRelationship": "Existing",
+  "preferredStart": "2026-08-20T21:00:00Z",
+  "durationMinutes": 60,
+  "reason": "New patient exam",
+  "availabilityToken": "<opaque>"
+}
+
+→ 202 Accepted  { "status": "accepted", "eventId": "…" }</code></pre>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Revalidation</h3><p>Submitting a token re-runs the engine server-side. If the slot was consumed, the API returns 409 Conflict. Previously loaded availability is never treated as authoritative.</p></div>
+          <div class="feature-card"><h3>No PHI read path</h3><p>IntakeService validates and publishes BookingRequestedEvent. It cannot read appointments or patient records. It stores only a minimized durable inbox row.</p></div>
+          <div class="feature-card"><h3>Staff remain the calendar</h3><p>SchedulingService consumes the event and creates a BookingRequest. Staff match or create the patient, then approve and schedule — or reject.</p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header">
+          <span class="section-eyebrow">Failure behavior</span>
+          <h2 class="section-title">The website keeps working.</h2>
+          <p class="section-subtitle">The topic decouples the website from the scheduler.</p>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th>Condition</th><th>Intake response</th><th>What happens</th></tr></thead>
+            <tbody>
+              <tr><td>Public booking disabled</td><td><code>404</code></td><td>Default. Nothing is internet-reachable until you turn it on.</td></tr>
+              <tr><td>Missing or wrong API key</td><td><code>401</code></td><td>Compared in constant time. Bearer or X-Api-Key.</td></tr>
+              <tr><td>Rate limit</td><td><code>429</code></td><td>Fixed window, 5 requests per minute per client IP. Forwarded addresses honored only from TrustedProxies.</td></tr>
+              <tr><td>Stale slot</td><td><code>409</code></td><td>Caller reloads availability. No silent overwrite.</td></tr>
+              <tr><td>SchedulingService down</td><td><code>202</code></td><td>Event waits in the scheduling subscription. No booking is lost. The website is unaffected.</td></tr>
+              <tr><td>Service Bus unreachable</td><td><code>503</code></td><td>No false 202. The calling website falls back to its own path (email).</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section style="background:#0a0a0a;">
+      <div class="section-wrapper">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-eyebrow">Zocdoc</span>
+          <h2 class="section-title">A channel adapter. Not a partnership claim.</h2>
+          <p class="section-subtitle" style="margin:0; max-width:none;">Zocdoc work is a scheduling-API pilot. It is not a certified partnership. The adapter sits on the same public contract. It never becomes a second calendar and never sees PHI.</p>
+        </div>
+        <p>The first reference integration is documented on the <a href="/pilot">Pilot</a> page. No practice name or internal patient, provider, or location identifier is coupled to the intake workflow. CORS is not required — the website calls IntakeService server-to-server.</p>
+      </div>
+    </section>
+    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
+      <h2 style="color:#fff; text-shadow:none;">Inspect the intake service. Then talk about a channel.</h2>
+      <p>Disabled by default. API-key gated. Isolated from PHI.</p>
+      <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
+    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
+    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
+    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Cloud Dental Office</h4>
+          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
+          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
+          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/platform">Platform</a></li>
+            <li><a href="/scheduling">Scheduling APIs</a></li>
+            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/architecture">Architecture</a></li>
+            <li><a href="/pilot">Pilot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Docs</h5>
+          <ul>
+            <li><a href="/docs">Docs / start</a></li>
+            <li><a href="/trust">Trust</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
+            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/site.js"></script>
+</body>
+</html>

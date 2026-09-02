@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture — Cloud Dental Office</title>
+  <meta name="description" content="Blazor Server portal to YARP to bounded-context services. Only IntakeService is internet-facing. Per-service PostgreSQL. Service Bus for booking events." />
+  <link rel="canonical" href="https://clouddentaloffice.com/architecture" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cloud Dental Office" />
+  <meta property="og:url" content="https://clouddentaloffice.com/architecture" />
+  <meta property="og:title" content="Architecture — Cloud Dental Office" />
+  <meta property="og:description" content="Blazor Server portal to YARP to bounded-context services. Only IntakeService is internet-facing. Per-service PostgreSQL. Service Bus for booking events." />
+  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Architecture — Cloud Dental Office" />
+  <meta name="twitter:description" content="Blazor Server portal to YARP to bounded-context services. Only IntakeService is internet-facing. Per-service PostgreSQL. Service Bus for booking events." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cloud Dental Office",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Cloud (Azure, Kubernetes)",
+    "url": "https://clouddentaloffice.com",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
+    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
+    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+  }
+  </script>
+  <link rel="stylesheet" href="/css/sentinel.css" />
+  <link rel="stylesheet" href="/css/conversion.css" />
+  <script src="/js/mobile-nav.js"></script>
+  
+</head>
+<body>
+  <a href="#main-content" class="skip-to-main">Skip to main content</a>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
+        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
+        <span class="nav-logo-lockup">
+          <span class="nav-logo-text">Cloud Dental Office</span>
+          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <ul id="mainNav">
+          <li><a href="/platform">Platform</a></li>
+          <li><a href="/scheduling">Scheduling APIs</a></li>
+          <li><a href="/claims">Claims</a></li>
+          <li><a href="/architecture" aria-current="page">Architecture</a></li>
+          <li><a href="/pilot">Pilot</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/trust">Trust</a></li>
+          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main id="main-content">
+
+    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Architecture">
+      <div class="hero-circuit-bg" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="section-eyebrow">Architecture</span>
+        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Private network for PHI. One public door.</h1>
+        <p class="hero-subheadline" style="margin-bottom:32px;">Expose only IntakeService to the internet. Keep the API gateway and every PHI-bearing service — including SchedulingService — on the private network.</p>
+        <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+      </div>
+    </header>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header">
+          <span class="section-eyebrow">Topology</span>
+          <h2 class="section-title">Portal, gateway, services, bus.</h2>
+        </div>
+        <div class="feature-card" style="font-family:ui-monospace,monospace; font-size:0.82rem;">
+          <div style="display:grid; gap:12px; text-align:center;">
+            <div style="border:1px solid rgba(0,255,255,0.3); padding:14px; border-radius:8px;">Blazor Server Portal<br><span style="color:#808080; font-size:0.7rem;">MudBlazor · staff tokens</span></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div style="border:1px solid rgba(0,255,255,0.3); padding:14px; border-radius:8px;">YARP API Gateway<br><span style="color:#808080; font-size:0.7rem;">private :5200</span></div>
+              <div style="border:1px solid rgba(0,255,136,0.5); background:rgba(0,255,136,0.08); color:#00ff88; padding:14px; border-radius:8px;">IntakeService<br><span style="color:#808080; font-size:0.7rem;">public · isolated</span></div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px;">
+              <div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Patient</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Schedule</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Claims</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Eligibility</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">ERA</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Auth</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Rx</div><div style="border:1px solid rgba(0,255,255,0.25); padding:10px; border-radius:6px;">Vision</div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div style="border:1px solid rgba(0,255,255,0.3); padding:14px; border-radius:8px;">PostgreSQL per service<br><span style="color:#808080; font-size:0.7rem;">no shared PHI database</span></div>
+              <div style="border:1px solid rgba(0,255,255,0.3); padding:14px; border-radius:8px;">Service Bus<br><span style="color:#808080; font-size:0.7rem;">booking-requests topic</span></div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align:center; color:#808080; font-size:0.85rem;">Conceptual. Exact ports and overlays live in the repository under infrastructure/k8s.</p>
+      </div>
+    </section>
+    <section style="background:#0a0a0a;">
+      <div class="section-wrapper">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3 style="color:#00ff88;">Public</h3>
+            <ul class="benefit-list">
+              <li>IntakeService, TLS, API key at the edge.</li>
+              <li>Disabled by default (404 until PublicBooking:Enabled).</li>
+              <li>Isolated durable inbox database only.</li>
+              <li>Cannot read clinical, patient, or scheduling records.</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <h3>Private</h3>
+            <ul class="benefit-list">
+              <li>Portal, YARP gateway, every other service.</li>
+              <li>SchedulingService appointment APIs always require a signed staff token.</li>
+              <li>Per-service PostgreSQL.</li>
+              <li>Service Bus topic booking-requests / subscription scheduling.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-wrapper">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-eyebrow">Run it</span>
+          <h2 class="section-title">Compose, Kubernetes, or services one at a time.</h2>
+          <p class="section-subtitle" style="margin:0; max-width:none;">Each service defaults to SQLite for local development. Production is PostgreSQL.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Docker Compose</h3><p><code>docker-compose up -d</code></p><p>Portal :5000. Gateway :5200. Swagger per service on 510x.</p></div>
+          <div class="feature-card"><h3>Local Kubernetes</h3><p><code>./scripts/deploy-local-k8s.sh</code></p><p>Namespace clouddental. Helper generates the local database password and JWT key in-cluster. They are not in the repo.</p></div>
+          <div class="feature-card"><h3>Cloud</h3><p><code>infrastructure/k8s · Bicep</code></p><p>Azure deployment runs after CI on main. Manifests for DOKS and cloud overlays are in the repository.</p></div>
+        </div>
+        <p style="margin-top:28px;">Source: <a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">github.com/aurelianware/clouddentaloffice</a></p>
+      </div>
+    </section>
+    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
+      <h2 style="color:#fff; text-shadow:none;">Read the manifests. Then talk about a deploy.</h2>
+      <p>No borrowed cloud-provider badges. The topology is in source.</p>
+      <div class="hero-cta">
+        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
+        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
+    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
+    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
+    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>Cloud Dental Office</h4>
+          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
+          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
+          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/platform">Platform</a></li>
+            <li><a href="/scheduling">Scheduling APIs</a></li>
+            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/architecture">Architecture</a></li>
+            <li><a href="/pilot">Pilot</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Docs</h5>
+          <ul>
+            <li><a href="/docs">Docs / start</a></li>
+            <li><a href="/trust">Trust</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
+            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/site.js"></script>
+</body>
+</html>
