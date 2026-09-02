@@ -4,7 +4,7 @@ name: Deploy to Cloudflare Pages
 # Requires two repository secrets (Settings -> Secrets and variables -> Actions):
 #   CLOUDFLARE_API_TOKEN  - a token with the "Cloudflare Pages: Edit" permission
 #   CLOUDFLARE_ACCOUNT_ID - your Cloudflare account ID (Dashboard -> Workers & Pages)
-# On its first run, wrangler creates the Pages project named below if it does not exist.
+# The workflow creates the Pages project if it does not exist yet, then deploys.
 
 on:
   push:
@@ -18,6 +18,12 @@ concurrency:
   group: cloudflare-pages-deploy
   cancel-in-progress: true
 
+env:
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  PROJECT_NAME: clouddentaloffice-www
+  WRANGLER: wrangler@3.90.0
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,10 +31,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Idempotent: succeeds if the project already exists (the `|| true` swallows
+      # the "already exists" error on subsequent runs).
+      - name: Ensure Cloudflare Pages project exists
+        run: |
+          npx --yes $WRANGLER pages project create "$PROJECT_NAME" \
+            --production-branch=main || true
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Publish the repo root; --branch=main marks this as a production deploy.
-          command: pages deploy . --project-name=clouddentaloffice-www --branch=main
+        run: |
+          npx --yes $WRANGLER pages deploy . \
+            --project-name="$PROJECT_NAME" \
+            --branch=main \
+            --commit-dirty=true
