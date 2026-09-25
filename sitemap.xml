@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/</loc>
+    <loc>https://clouddental.io/</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/features</loc>
+    <loc>https://clouddental.io/features</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/integrations</loc>
+    <loc>https://clouddental.io/integrations</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/pilot</loc>
+    <loc>https://clouddental.io/pilot</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/about</loc>
+    <loc>https://clouddental.io/about</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/contact</loc>
+    <loc>https://clouddental.io/contact</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/trust</loc>
+    <loc>https://clouddental.io/trust</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/platform</loc>
+    <loc>https://clouddental.io/platform</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/scheduling</loc>
+    <loc>https://clouddental.io/scheduling</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/claims</loc>
+    <loc>https://clouddental.io/claims</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/architecture</loc>
+    <loc>https://clouddental.io/architecture</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/docs</loc>
+    <loc>https://clouddental.io/docs</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://{{PRIMARY_DOMAIN}}/privacy</loc>
+    <loc>https://clouddental.io/privacy</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

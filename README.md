@@ -1,6 +1,6 @@
 # Cloud Dental Office — marketing site
 
-Static marketing site for `{{PRIMARY_DOMAIN}}`.
+Static marketing site for [clouddental.io](https://clouddental.io), the primary domain. `clouddentaloffice.com` and the `www` hosts 301-redirect to it.
 
 Deploys to Cloudflare Pages project `clouddentaloffice-www`.
 
@@ -34,7 +34,7 @@ Pages are plain HTML with the header, nav, and footer repeated in each file. Whe
 
 ## Placeholders
 
-Values in `{{DOUBLE_BRACES}}` are filled in before launch: `PRIMARY_DOMAIN`, `LICENSE_WORDING`, `LICENSE_URL`, `PILOT_PRICING`, `ZOCDOC_REFERRAL_URL`, `ZOCDOC_CONFIRMATION_MODEL`, `STEDI_ROLE`. Find them with `grep -rn "{{" --include=*.html --include=*.xml --include=*.txt .`. The link check treats `https://{{PRIMARY_DOMAIN}}/…` as internal.
+Values in `{{DOUBLE_BRACES}}` are filled in before launch: `LICENSE_WORDING`, `LICENSE_URL`, `PILOT_PRICING`, `ZOCDOC_REFERRAL_URL`, `ZOCDOC_CONFIRMATION_MODEL`, `STEDI_ROLE`. Find them with `grep -rn "{{" --include=*.html --include=*.xml --include=*.txt .`.
 
 ## Brand assets
 
@@ -84,10 +84,8 @@ both, or every push deploys twice.
 
 ### Custom domain
 
-4. In the Pages project: **Custom domains → Set up a domain → `clouddentaloffice.com`** (add `www.clouddentaloffice.com` too if you want the `www` host).
-5. Point DNS at Cloudflare:
-   - Apex (`clouddentaloffice.com`): Pages requires the zone to be on Cloudflare. Move the nameservers to Cloudflare.
-   - Subdomain (`www`): either move the zone, or keep DNS elsewhere and add a `CNAME` for `www` → `clouddentaloffice-www.pages.dev`. **Add the domain in the Pages project first.** A bare CNAME without it returns Cloudflare error 1001.
+4. In the Pages project: **Custom domains → Set up a domain → `clouddental.io`**. Other hosts (`www.clouddental.io`, `clouddentaloffice.com`, `www.clouddentaloffice.com`) should 301 to it with a Cloudflare Bulk Redirect rather than be attached to the project.
+5. Every redirecting host needs a proxied (orange-cloud) DNS record in a Cloudflare zone, or the redirect never runs. `clouddental.io` is already on Cloudflare. `clouddentaloffice.com` is on DigitalOcean DNS, so move its nameservers to Cloudflare first, and bring the Proton Mail MX, SPF, DKIM, and DMARC records with it. Never CNAME a host to `clouddentaloffice-www.pages.dev` without adding it in the Pages project; that returns Cloudflare error 1001.
 6. TLS certificates are issued automatically once DNS resolves.
 
 ### Notes
@@ -98,7 +96,7 @@ both, or every push deploys twice.
 - `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
 - `/css/*` and `/js/*` are cached for a year as `immutable`. When you change one, bump its `?v=` query in every page (e.g. `/js/site.js?v=2` → `?v=3`), or returning visitors keep the old file.
 - `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
-- Contact form opens the visitor's mail client to `sales@clouddentaloffice.com`. No Formspree, no backend.
+- Contact form opens the visitor's mail client to `sales@aurelianware.com`. No Formspree, no backend.
 
 ## Voice
 
