@@ -31,6 +31,7 @@ SKIP_DIRS = {".git", ".github", "node_modules", "scripts"}
 LINK_ATTRS = {"href", "src", "srcset", "content", "poster", "action"}
 # <meta content> is only a link for these properties.
 META_URL_PROPS = {"og:image", "og:url", "twitter:image"}
+PRIMARY_PLACEHOLDER = "https://{{PRIMARY_DOMAIN}}"
 EXTERNAL = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|//)", re.I)
 # Absolute URLs on these hosts are checked as internal links.
 OWN_HOSTS = {
@@ -110,7 +111,10 @@ def main():
         for line, attr, raw in c.links:
             url = raw.strip()
             where = f"{page_rel}:{line}"
-            # Template placeholders are filled in before launch; skip them.
+            # The primary domain is a placeholder until launch; check it as internal.
+            if url.startswith(PRIMARY_PLACEHOLDER):
+                url = url[len(PRIMARY_PLACEHOLDER):] or "/"
+            # Other template placeholders are filled in before launch; skip them.
             if "{{" in url or url.startswith(("mailto:", "tel:", "javascript:", "data:")):
                 continue
             if EXTERNAL.match(url):
@@ -144,10 +148,7 @@ def main():
     sitemap = ROOT / "sitemap.xml"
     if sitemap.is_file():
         for loc in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", sitemap.read_text(encoding="utf-8")):
-            if "{{" in loc:
-                path = re.sub(r"^\{\{[A-Z_]+\}\}", "", loc)
-            else:
-                path = urlsplit(loc).path
+            path = urlsplit(loc).path
             checked += 1
             if (path or "/").endswith(".html") or resolve(path or "/") is None:
                 errors.append(f"sitemap.xml: {loc} -> no page for {path or '/'}")
@@ -162,7 +163,7 @@ def main():
             loc = value.strip()
             parts = urlsplit(loc)
             checked += 1
-            if parts.hostname not in OWN_HOSTS and "{{" not in loc:
+            if parts.hostname not in OWN_HOSTS and not loc.startswith(PRIMARY_PLACEHOLDER):
                 errors.append(f"robots.txt:{n}: Sitemap {loc} is not on a site host")
             elif resolve(parts.path) is None:
                 errors.append(f"robots.txt:{n}: Sitemap {loc} -> no file for {parts.path}")

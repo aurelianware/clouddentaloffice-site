@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://clouddental.io/sitemap.xml
+Sitemap: https://{{PRIMARY_DOMAIN}}/sitemap.xml

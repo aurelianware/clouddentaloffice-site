@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://clouddental.io/</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/platform</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/features</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/scheduling</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/integrations</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/claims</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/pilot</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/architecture</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/about</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/pilot</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/contact</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/docs</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/trust</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/trust</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/platform</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/contact</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/scheduling</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/privacy</loc>
+    <loc>https://{{PRIMARY_DOMAIN}}/claims</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://{{PRIMARY_DOMAIN}}/architecture</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://{{PRIMARY_DOMAIN}}/docs</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://{{PRIMARY_DOMAIN}}/privacy</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

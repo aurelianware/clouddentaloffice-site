@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trust — Cloud Dental Office</title>
-  <meta name="description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
-  <link rel="canonical" href="https://{{PRIMARY_DOMAIN}}/trust" />
+  <title>About the founder, Mark Phillips — Cloud Dental Office</title>
+  <meta name="description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
+  <link rel="canonical" href="https://{{PRIMARY_DOMAIN}}/about" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -14,16 +14,16 @@
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://{{PRIMARY_DOMAIN}}/trust" />
-  <meta property="og:title" content="Trust — Cloud Dental Office" />
-  <meta property="og:description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
+  <meta property="og:url" content="https://{{PRIMARY_DOMAIN}}/about" />
+  <meta property="og:title" content="About the founder, Mark Phillips — Cloud Dental Office" />
+  <meta property="og:description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
   <meta property="og:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trust — Cloud Dental Office" />
-  <meta name="twitter:description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
+  <meta name="twitter:title" content="About the founder, Mark Phillips — Cloud Dental Office" />
+  <meta name="twitter:description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
   <meta name="twitter:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
   <script type="application/ld+json">
   {
@@ -82,8 +82,8 @@
           <li><a href="/features">Features</a></li>
           <li><a href="/integrations">Integrations</a></li>
           <li><a href="/pilot">Pilot</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/trust" aria-current="page">Trust</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
+          <li><a href="/trust">Trust</a></li>
           <li class="nav-group">
             <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
             <ul class="nav-group__menu" id="devMenu">
@@ -102,89 +102,58 @@
   </nav>
   <main id="main-content">
 
-    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Trust">
+    <header class="hero-section hero-section--page" aria-labelledby="page-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="section-eyebrow">Trust</span>
-        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Trust starts with clear boundaries.</h1>
-        <p class="hero-subheadline" style="margin-bottom:32px;">Cloud Dental Office is source-available practice infrastructure, not a certification claim. This page states what is in the repository, what IntakeService cannot do, and what we do not put on a badge.</p>
-        <div class="hero-cta">
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button" target="_blank" rel="noopener noreferrer">Read the source &rarr;</a>
-        <a href="/contact" class="button button-secondary">Send a questionnaire &rarr;</a>
-      </div>
+        <span class="section-eyebrow">About</span>
+        <h1 id="page-heading" class="section-title page-title">A career on the payer side of the claim. Now on the dentist&rsquo;s side.</h1>
       </div>
     </header>
-    <section>
-      <div class="section-wrapper">
-        <div class="trust-strip__inner">
-          <div class="trust-item"><div><strong>Source visible</strong><span>Isolation, booking flow, and availability engine are in the public repository.</span></div></div>
-          <div class="trust-item"><div><strong>Disabled by default</strong><span>Public booking returns 404 until PublicBooking:Enabled is true.</span></div></div>
-          <div class="trust-item"><div><strong>No PHI read path</strong><span>IntakeService cannot read patient, clinical, or scheduling databases.</span></div></div>
-          <div class="trust-item"><div><strong>No borrowed badges</strong><span>We do not claim SOC 2, HITRUST, or a certified Zocdoc partnership.</span></div></div>
+
+    <section aria-labelledby="founder-heading">
+      <div class="section-wrapper founder">
+        <div>
+          <span class="section-eyebrow">Founder</span>
+          <h2 id="founder-heading" class="section-title">Mark Phillips</h2>
+          <p>Mark has spent more than 25 years building healthcare payer core systems: the claims engines that insurers run. That work includes TriZetto/QNXT and Molina, and he is a co-inventor on the MyQNXT patent.</p>
+          <p>That work sits on the payer side, in the software that receives a claim, checks it, and decides what gets paid. After a career there, you learn why claims get denied.</p>
+          <p>Cloud Dental Office points that knowledge the other way. It is software that helps dentists get paid.</p>
+        </div>
+        <div class="feature-card">
+          <h3>At a glance</h3>
+          <ul class="benefit-list">
+            <li>25+ years in healthcare payer core systems</li>
+            <li>TriZetto/QNXT</li>
+            <li>Molina</li>
+            <li>Co-inventor, MyQNXT patent</li>
+          </ul>
         </div>
       </div>
     </section>
-    <section style="background:#0a0a0a;">
+
+    <section aria-labelledby="company-heading" class="band band--dark">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Current assurance status</span>
-          <h2 class="section-title">What is public, what is configurable, what is not claimed.</h2>
+        <div class="section-header section-header--left">
+          <span class="section-eyebrow">Company</span>
+          <h2 id="company-heading" class="section-title">Aurelianware, Inc.</h2>
         </div>
         <div class="feature-grid">
-          <div class="feature-card"><p class="case-card-tag">Public & implemented</p><h3>Intake isolation</h3><p>API key compared in constant time. Rate limit 5/min per IP. Isolated inbox. BookingRequestedEvent over Service Bus. Token revalidation with 409 on stale slots.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Reference architecture</p><h3>Private network for PHI</h3><p>Portal, YARP, and every PHI-bearing service stay private. Only IntakeService is designed to face the internet.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Not currently claimed</p><h3>Aurelianware certifications</h3><p>This site does not claim that Aurelianware or Cloud Dental Office currently holds SOC 2 Type II or HITRUST certification.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Pilot, not certified</p><h3>Zocdoc</h3><p>Scheduling-API pilot only. Not presented as a partnership or marketplace certification.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Contractual</p><h3>BAA, SLA, support</h3><p>PHI processing, support coverage, and incident terms are defined per engagement. Visitor-submitted intake data must still be handled as sensitive healthcare information.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Customer-operated</p><h3>Production effectiveness</h3><p>Identity, networks, keys, logging, and recovery must be verified in the target environment. A repository is not a production control.</p></div>
+          <div class="feature-card"><h3>Cloud Dental Office</h3><p>The practice side: scheduling, patients, claims, and payments for dental offices.</p></div>
+          <div class="feature-card"><h3>Cloud Health Office</h3><p>The payer side: the claims and payer-connectivity platform that Cloud Dental Office submits claims through. <a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com</a></p></div>
+          <div class="feature-card"><h3>How we talk</h3><p>No invented metrics, customers, or certifications. If something isn&rsquo;t built, the <a href="/features">features page</a> says so. The source is <a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p></div>
         </div>
       </div>
     </section>
-    <section>
-      <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Intake boundary</span>
-          <h2 class="section-title">What IntakeService is allowed to do.</h2>
-        </div>
-        <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Action</th><th>Allowed</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr><td>Accept name, phone, optional email, preferredStart</td><td>Yes</td><td>Minimum necessary for appointment intake.</td></tr>
-              <tr><td>Publish BookingRequestedEvent</td><td>Yes</td><td>202 only after the event is on the bus.</td></tr>
-              <tr><td>Expose free/bookable slots + availabilityToken</td><td>Yes</td><td>Slugs, practice timezone, no PHI.</td></tr>
-              <tr><td>Read patient / clinical / scheduling databases</td><td>No</td><td>No connection. Isolated inbox only.</td></tr>
-              <tr><td>Write an Appointment</td><td>No</td><td>Staff create the appointment after review.</td></tr>
-              <tr><td>Return 202 when Service Bus is down</td><td>No</td><td>Returns 503 so the website can fall back.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    <section style="background:#0a0a0a;">
-      <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Vulnerability reporting</span>
-          <h2 class="section-title">Report privately. Do not file PHI in public issues.</h2>
-        </div>
-        <p>Do not disclose suspected vulnerabilities, PHI, credentials, or tenant data through public GitHub issues. Email <a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a> with the component, steps, and redacted evidence. The product <a href="https://github.com/aurelianware/clouddentaloffice/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">SECURITY.md</a> is in the repository.</p>
-      </div>
-    </section>
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <h2 style="color:#fff; text-shadow:none;">Bring the architecture team. We will walk the isolation boundary in source.</h2>
-      <p>No badges we have not earned.</p>
+
+    <section class="cta-section" id="next-step" aria-labelledby="about-cta">
+      <h2 id="about-cta">Talk to the founder directly.</h2>
+      <p>Founding practices work with Mark from the first day.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+        <a href="/contact" class="button button-secondary">Contact</a>
       </div>
     </section>
-
-  
-
-  
-
-  
 
   </main>
   <div id="stickyCta" class="sticky-cta" role="region" aria-label="Founding-practice pilot">

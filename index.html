@@ -3,262 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Dental Office — The system of record for a dental practice</title>
-  <meta name="description" content="Cloud Dental Office is the system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform. Partners read availability. They never become the calendar." />
-  <link rel="canonical" href="https://clouddentaloffice.com/" />
+  <title>Cloud Dental Office — Scheduling, claims, and payments for dental practices</title>
+  <meta name="description" content="One cloud system for scheduling, eligibility, claims, and payments that helps independent dental practices get paid faster. Founding-practice pilot starts October 2026." />
+  <link rel="canonical" href="https://{{PRIMARY_DOMAIN}}/" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://clouddentaloffice.com/" />
-  <meta property="og:title" content="Cloud Dental Office — The system of record for a dental practice" />
-  <meta property="og:description" content="Cloud Dental Office is the system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform. Partners read availability. They never become the calendar." />
-  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta property="og:url" content="https://{{PRIMARY_DOMAIN}}/" />
+  <meta property="og:title" content="Cloud Dental Office — Scheduling, claims, and payments for dental practices" />
+  <meta property="og:description" content="One cloud system for scheduling, eligibility, claims, and payments that helps independent dental practices get paid faster. Founding-practice pilot starts October 2026." />
+  <meta property="og:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cloud Dental Office — The system of record for a dental practice" />
-  <meta name="twitter:description" content="Cloud Dental Office is the system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform. Partners read availability. They never become the calendar." />
+  <meta name="twitter:title" content="Cloud Dental Office — Scheduling, claims, and payments for dental practices" />
+  <meta name="twitter:description" content="One cloud system for scheduling, eligibility, claims, and payments that helps independent dental practices get paid faster. Founding-practice pilot starts October 2026." />
+  <meta name="twitter:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Cloud Dental Office",
-    "applicationCategory": "HealthApplication",
-    "operatingSystem": "Cloud (Azure, Kubernetes)",
-    "url": "https://clouddentaloffice.com",
-    "license": "https://www.apache.org/licenses/LICENSE-2.0",
-    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
-    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
-    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://{{PRIMARY_DOMAIN}}/#organization",
+        "name": "Aurelianware, Inc.",
+        "url": "https://{{PRIMARY_DOMAIN}}/",
+        "logo": "https://{{PRIMARY_DOMAIN}}/brand/cdo-icon-512.png",
+        "email": "sales@clouddentaloffice.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Mark Phillips"
+        },
+        "sameAs": [
+          "https://github.com/aurelianware"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://{{PRIMARY_DOMAIN}}/#software",
+        "name": "Cloud Dental Office",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Dental practice management",
+        "operatingSystem": "Web browser",
+        "url": "https://{{PRIMARY_DOMAIN}}/",
+        "image": "https://{{PRIMARY_DOMAIN}}/og-image.png",
+        "description": "One cloud system for scheduling, eligibility, claims, and payments that helps independent dental practices get paid faster.",
+        "license": "{{LICENSE_URL}}",
+        "publisher": {
+          "@id": "https://{{PRIMARY_DOMAIN}}/#organization"
+        },
+        "sameAs": [
+          "https://github.com/aurelianware/clouddentaloffice"
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="/css/sentinel.css" />
   <link rel="stylesheet" href="/css/conversion.css" />
-  <script src="/js/mobile-nav.js"></script>
-  
+  <script src="/js/mobile-nav.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
-  <nav>
+  <nav aria-label="Main">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
-        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
-        <span class="nav-logo-lockup">
-          <span class="nav-logo-text">Cloud Dental Office</span>
-          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
-        </span>
+        <img src="/brand/cdo-horizontal-on-dark.svg" alt="" class="nav-logo-img" width="252" height="40" />
       </a>
       <div class="nav-right">
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav" id="mobileMenuToggle">&#9776;</button>
         <ul id="mainNav">
-          <li><a href="/platform">Platform</a></li>
-          <li><a href="/scheduling">Scheduling APIs</a></li>
-          <li><a href="/claims">Claims</a></li>
-          <li><a href="/architecture">Architecture</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/integrations">Integrations</a></li>
           <li><a href="/pilot">Pilot</a></li>
-          <li><a href="/docs">Docs</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="/trust">Trust</a></li>
-          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
+            <ul class="nav-group__menu" id="devMenu">
+              <li><a href="/platform">Platform</a></li>
+              <li><a href="/scheduling">Scheduling APIs</a></li>
+              <li><a href="/claims">Claims &amp; interoperability</a></li>
+              <li><a href="/architecture">Architecture</a></li>
+              <li><a href="/docs">Docs</a></li>
+              <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact" class="nav-cta">Join the pilot</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <main id="main-content">
 
-    <section class="hero-section" aria-label="Hero">
+    <section class="hero-section" aria-labelledby="hero-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-scan-line" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <img src="/graphics/logo.svg" alt="Cloud Dental Office" class="hero-logo" />
-        <div class="hero-badge">Practice platform &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Apache 2.0</div>
-        <h1 class="hero-headline">The system of record for a dental practice.</h1>
+        <div class="hero-badge">For independent and small-group dental practices</div>
+        <h1 id="hero-heading" class="hero-headline">Get paid for the dentistry you already did.</h1>
         <p class="hero-subheadline">
-          Scheduling, patients, claims, eligibility, and ERAs live in one inspectable platform.
-          Practice websites and marketplace partners read a vendor-neutral public availability
-          contract and submit booking intent. They never become the calendar. They never see PHI.
+          One cloud system for scheduling, eligibility, claims, and payments. Built by a founder
+          who spent 25+ years inside payer claims systems, the software that decides whether a claim
+          gets paid. He knows why claims get denied.
         </p>
         <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
-      </div>
-        <p style="margin:0; font-size:0.85rem; color:rgba(176,176,176,0.6);">
-          Or <a href="/scheduling" style="color:rgba(0,255,255,0.75);">read the public scheduling APIs</a>
-          &nbsp;&middot;&nbsp; <a href="/docs" style="color:rgba(0,255,255,0.75);">clone and run it</a>
-        </p>
-      </div>
-    </section>
-
-    <section aria-label="Why Cloud Dental Office" style="padding:48px 24px; background:#000; border-top:1px solid rgba(0,255,255,0.08);">
-      <div class="section-wrapper">
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h3>One calendar. One source of truth.</h3>
-            <p>The same ISchedulingAvailabilityService is canonical. A marketplace adapter is a channel, not a second calendar.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Public intake, isolated by design.</h3>
-            <p>IntakeService is internet-facing, disabled by default, API-key and rate-limited. It has no read access to patient, clinical, or scheduling databases.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Source you can inspect.</h3>
-            <p>Apache 2.0. Read the contracts, the booking flow, and the isolation boundary. No black box.</p>
-          </div>
+          <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+          <a href="#how-it-works" class="button button-secondary">See how it works</a>
         </div>
+        <p class="hero-note">Pilot starts October 2026. A small group of practices. A direct line to the founder.</p>
       </div>
     </section>
 
-    <section aria-labelledby="flow-heading" style="background:linear-gradient(180deg,#000 0%,#020711 100%);">
+    <section aria-labelledby="pain-heading" class="band band--top">
       <div class="section-wrapper">
         <div class="section-header">
-          <span class="section-eyebrow">The platform in one view</span>
-          <h2 id="flow-heading" class="section-title">From a free slot to a confirmed appointment.</h2>
-          <p class="section-subtitle">Partners see bookable time. Staff remain the authority. BookingRequest is not an Appointment.</p>
+          <span class="section-eyebrow">Where the money leaks</span>
+          <h2 id="pain-heading" class="section-title">The dentistry is done. The paperwork isn&rsquo;t.</h2>
+          <p class="section-subtitle">Most offices don&rsquo;t lose money in the operatory. They lose it at the front desk, days or weeks later.</p>
         </div>
-        <div class="feature-grid">
-          <div class="feature-card"><h3>1 · Availability</h3><p>GET free slots. JSON and .ics expose only bookable time, with an opaque encrypted availabilityToken. Slugs, not database ids.</p></div>
-          <div class="feature-card"><h3>2 · Intent</h3><p>POST booking-request returns 202 and publishes BookingRequestedEvent. Staff approve later. The slot is revalidated server-side.</p></div>
-          <div class="feature-card"><h3>3 · Review</h3><p>The portal matches or creates the patient, then approves, rejects, or asks for follow-up.</p></div>
-          <div class="feature-card"><h3>4 · Record</h3><p>Only after staff action does the practice calendar hold a confirmed event. Partners never write it.</p></div>
+        <div class="feature-grid feature-grid--compact">
+          <div class="feature-card"><h3>Eligibility surprises</h3><p>The patient is already in the chair when someone learns the plan lapsed, or the frequency limit is used up.</p></div>
+          <div class="feature-card"><h3>Denied claims</h3><p>A claim comes back weeks later needing information. Someone reworks it by hand, and the money waits.</p></div>
+          <div class="feature-card"><h3>Double entry</h3><p>The patient, the appointment, the claim, the payment. Typed into more than one system that doesn&rsquo;t talk to the others.</p></div>
+          <div class="feature-card"><h3>Chasing ERAs</h3><p>The payer paid. Now someone finds the remittance and posts it line by line to the right patient.</p></div>
+          <div class="feature-card"><h3>Empty chairs</h3><p>New patients look for an opening at 9 p.m. Your schedule isn&rsquo;t where they are looking.</p></div>
         </div>
-        <p style="text-align:center; margin-top:28px; color:#999;">Conceptual flow. Exact adapters are validated per practice. <a href="/scheduling">Scheduling APIs &rarr;</a></p>
       </div>
     </section>
 
-    <section style="background:linear-gradient(90deg,#000d1a 0%,#001a0a 50%,#000d1a 100%); border-top:1px solid rgba(0,255,136,0.2); border-bottom:1px solid rgba(0,255,136,0.2); padding:48px 24px;">
-      <div style="max-width:860px; margin:0 auto; text-align:center;">
-        <span class="section-eyebrow">The problem — and the low-risk path</span>
-        <h2 style="color:#fff; text-shadow:none;">A website should not become a second calendar.</h2>
-        <p style="color:rgba(200,200,200,0.85); line-height:1.75;">
-          Practice sites and marketplace partners need bookable time. They should not own the
-          operatory, see PHI, or write appointments. Cloud Dental Office keeps the calendar inside
-          the practice. Partners consume a vendor-neutral availability contract and submit intent.
-          If the bus is down, intake returns 503 so the website can fall back to email. Scheduling
-          outages do not lose bookings.
-        </p>
-        <a href="/scheduling" class="button button-secondary">Read the public contract &rarr;</a>
-      </div>
-    </section>
-
-    <section>
+    <section id="how-it-works" aria-labelledby="how-heading" class="band band--gradient">
       <div class="section-wrapper">
         <div class="section-header">
-          <span class="section-eyebrow">Where you start</span>
-          <h2 class="section-title">Bounded contexts, already built.</h2>
-          <p class="section-subtitle">Each service is its own context behind a YARP gateway. The portal is Blazor Server. The public edge is IntakeService — and only IntakeService.</p>
+          <span class="section-eyebrow">How it works</span>
+          <h2 id="how-heading" class="section-title">One record, from the booking to the payment.</h2>
+          <p class="section-subtitle">Enter the patient once. The schedule, the claim, and the balance all come from that record. Each step is marked with where it stands today.</p>
         </div>
-        <div class="feature-grid">
-          <div class="feature-card"><h3>Patient</h3><p>Demographics, insurance, search.</p></div>
-          <div class="feature-card"><h3>Scheduling</h3><p>Appointments, operatories, provider calendars.</p></div>
-          <div class="feature-card"><h3>Claims</h3><p>Lifecycle and 837D generation.</p></div>
-          <div class="feature-card"><h3>Eligibility</h3><p>270/271 verification.</p></div>
-          <div class="feature-card"><h3>ERA</h3><p>835 processing and posting.</p></div>
-          <div class="feature-card"><h3>Auth</h3><p>Tenant-aware identity and JWT issuance.</p></div>
-          <div class="feature-card"><h3>e-Prescribing</h3><p>DoseSpot / EPCS.</p></div>
-          <div class="feature-card"><h3>AI Vision</h3><p>privaseeAI and insurance-card OCR.</p></div>
-          <div class="feature-card"><h3>Intake</h3><p>Isolated public booking and availability.</p></div>
-        </div>
-        <p style="text-align:center; margin-top:28px;"><a href="/platform">See the full platform &rarr;</a></p>
+        <ol class="steps">
+          <li class="feature-card">
+            <span class="status status--ready">Ready</span>
+            <h3>1 &middot; Book</h3>
+            <p>New patients choose an open time on your website and it arrives as a request on your schedule. Your staff match the patient and approve it. Zocdoc booking is <a href="/integrations">in progress</a>.</p>
+          </li>
+          <li class="feature-card">
+            <span class="status status--progress">In progress</span>
+            <h3>2 &middot; Check coverage</h3>
+            <p>Verify eligibility before the visit, not after the claim comes back. The screens and workflow are built. Live payer connections are the remaining work.</p>
+          </li>
+          <li class="feature-card">
+            <span class="status status--ready">Ready</span>
+            <h3>3 &middot; Claim</h3>
+            <p>Build the claim from the visit you already recorded and submit it. Follow it in plain language: submitted, accepted, information needed, denied, paid. Each status shows the next step.</p>
+          </li>
+          <li class="feature-card">
+            <span class="status status--ready">Ready</span>
+            <h3>4 &middot; Get paid</h3>
+            <p>When the payer pays, the insurance payment and adjustment post to the patient&rsquo;s ledger. Nobody retypes it. Online card payments for the patient&rsquo;s share are <a href="/features#in-progress">in progress</a>.</p>
+          </li>
+        </ol>
+        <p class="section-foot"><a href="/features">Everything that is ready, in progress, and reserved &rarr;</a></p>
       </div>
     </section>
 
-    <section style="background:#050505; border-top:1px solid rgba(0,255,255,0.08);">
+    <section aria-labelledby="status-heading" class="band">
       <div class="section-wrapper">
-        <div class="feature-grid">
-          <div>
-            <span class="section-eyebrow">Sister platform</span>
-            <h2 class="section-title" style="text-align:left;">Cloud Dental Office is the practice surface. Cloud Health Office is the payer.</h2>
-            <p>Staff see lifecycle status, a timeline, patient responsibility, and posted financials — not X12 transactions or clearinghouse vendors. Claim submission goes to Cloud Health Office. Intelligence comes back through a practice-facing API.</p>
-            <p><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com &rarr;</a></p>
-          </div>
+        <div class="section-header">
+          <span class="section-eyebrow">Honest status</span>
+          <h2 id="status-heading" class="section-title">What is ready. What is in progress. What is reserved.</h2>
+          <p class="section-subtitle">We say what works today and mark the rest. No invented features, customers, or certifications.</p>
+        </div>
+        <div class="status-grid">
           <div class="feature-card">
-            <h3>What is ready</h3>
+            <span class="status status--ready">Ready</span>
             <ul class="benefit-list">
-              <li>Claim submission to Cloud Health Office — implemented.</li>
-              <li>Claim intelligence API (status, timeline, responsibility) — implemented.</li>
-              <li>Posted financials to the patient ledger — implemented.</li>
-              <li>Eligibility via payer transaction router — in progress.</li>
-              <li>Predetermination / advanced EOB — reserved.</li>
+              <li>Schedule by provider and operatory</li>
+              <li>Website booking requests your staff approve</li>
+              <li>Patient records with insurance details</li>
+              <li>Claims you can follow in plain language</li>
+              <li>Insurance payments posted to the ledger</li>
+              <li>Treatment-plan insurance estimates</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <span class="status status--progress">In progress</span>
+            <ul class="benefit-list benefit-list--progress">
+              <li>Eligibility checks with live payers</li>
+              <li>Online card payments from patients</li>
+              <li>Zocdoc booking</li>
+            </ul>
+          </div>
+          <div class="feature-card">
+            <span class="status status--reserved">Reserved</span>
+            <ul class="benefit-list benefit-list--reserved">
+              <li>Predeterminations and pre-treatment estimates from the payer</li>
+              <li>Prior authorization</li>
+              <li>Multi-location group support</li>
             </ul>
           </div>
         </div>
+        <p class="section-foot"><a href="/features">See the details &rarr;</a></p>
       </div>
     </section>
 
-    <section>
-      <div class="section-wrapper">
-        <div class="section-header">
-          <span class="section-eyebrow">The process</span>
-          <h2 class="section-title">From first call to a scoped pilot.</h2>
-          <p class="section-subtitle">Evaluate the source yourself. Then we scope a public-intake channel for one practice.</p>
+    <section aria-labelledby="privacy-heading" class="band band--green">
+      <div class="container-narrow text-center">
+        <span class="section-eyebrow">Privacy</span>
+        <h2 id="privacy-heading" class="section-title">Your schedule can be shared. Your patients are not.</h2>
+        <p class="lede">Booking partners can see open times, never patient records, and your staff always confirm the appointment.</p>
+        <p><a href="/trust">How we draw that line &rarr;</a></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="founder-heading" class="band">
+      <div class="section-wrapper founder">
+        <div>
+          <span class="section-eyebrow">Who builds it</span>
+          <h2 id="founder-heading" class="section-title">A career on the payer side of the claim.</h2>
+          <p>Mark Phillips spent 25+ years building healthcare payer core systems: TriZetto/QNXT, Molina, and a co-inventor credit on the MyQNXT patent. That is the software that reads your claim and decides what gets paid.</p>
+          <p>Cloud Dental Office takes that knowledge to the other side of the claim, to help dentists get paid.</p>
+          <p><a href="/about">About the founder &rarr;</a></p>
         </div>
-        <div class="feature-grid">
-          <div class="feature-card"><h3>1 · Align on scope</h3><p>We map the practice calendar, website, and any marketplace channel. We agree what IntakeService will expose — and what it will not.</p><p style="color:#00ffff; font-size:0.82rem; font-weight:600; margin-top:14px;">1–2 weeks</p></div>
-          <div class="feature-card"><h3>2 · Enable public intake</h3><p>API key, rate limit, practice timezone, booking horizon. Disabled by default until you turn it on. The website keeps an email fallback.</p><p style="color:#00ffff; font-size:0.82rem; font-weight:600; margin-top:14px;">1–2 weeks</p></div>
-          <div class="feature-card"><h3>3 · Pilot a channel</h3><p>Staff review booking requests in the portal. Partners stay on the public contract. The calendar remains the practice’s.</p><p style="color:#00ff88; font-size:0.82rem; font-weight:600; margin-top:14px;">Ongoing</p></div>
+        <div class="feature-card">
+          <h3>What that means for your office</h3>
+          <ul class="benefit-list">
+            <li>Claim status in the words your team uses, not payer codes.</li>
+            <li>The next step on every claim that stalls.</li>
+            <li>Built by someone who knows what payers check.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="next-step" style="padding:80px 24px; background:#000; border-top:1px solid rgba(0,255,136,0.2);">
-      <div style="max-width:760px; margin:0 auto; text-align:center;">
-        <span class="section-eyebrow">Two ways to move</span>
-        <h2 class="section-title">Evaluate on your own, or talk about a pilot.</h2>
-        <p class="section-subtitle">Engineers can clone the repo today. Practice operators can tell us what they are running. We reply in person — no automated queues.</p>
-        <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
-      </div>
-      </div>
-    </section>
-
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <span class="section-eyebrow">Currently accepting pilots</span>
-      <h2 style="margin-top:12px; color:#fff; text-shadow:none;">Keep the calendar. <span>Let partners read slots.</span></h2>
-      <p>Source-available. Apache 2.0. Deployed beside the practice, not instead of it.</p>
+    <section id="next-step" class="cta-section cta-section--wide" aria-labelledby="pilot-heading">
+      <span class="section-eyebrow">Founding-practice pilot</span>
+      <h2 id="pilot-heading">Starts October 2026. <span>A few practices. Hands-on.</span></h2>
+      <p>Hands-on onboarding, a direct line to the founder, and a real say in what gets built next.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+        <a href="/contact" class="button button-secondary">Ask a question</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="dev-heading" class="band band--top">
+      <div class="section-wrapper section-wrapper--tight">
+        <h2 id="dev-heading" class="h-small">For developers and booking partners</h2>
+        <p>Architecture, the public availability and booking-request APIs, and the source code are in the developer pages: <a href="/platform">Platform</a> &middot; <a href="/scheduling">Scheduling APIs</a> &middot; <a href="/claims">Claims &amp; interoperability</a> &middot; <a href="/architecture">Architecture</a> &middot; <a href="/docs">Docs</a>.</p>
       </div>
     </section>
 
   </main>
-    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
-    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
-    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
-    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <div id="stickyCta" class="sticky-cta" role="region" aria-label="Founding-practice pilot">
+    <p class="sticky-cta__text">Founding-practice pilot starts October 2026.</p>
+    <a href="/pilot" class="button sticky-cta__primary">Join the pilot &rarr;</a>
+    <a href="/#how-it-works" class="button sticky-cta__secondary">How it works</a>
   </div>
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h4>Cloud Dental Office</h4>
-          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
-          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
-          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+          <img src="/brand/cdo-stacked-on-dark.svg" alt="Cloud Dental Office" class="footer-brand-img" width="180" height="72"/>
+          <p>One cloud system for scheduling, eligibility, claims, and payments. Built to help independent dental practices get paid.</p>
+          <p>{{LICENSE_WORDING}} &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
         </div>
         <div class="footer-col">
-          <h5>Product</h5>
+          <h2 class="footer-heading">Practices</h2>
+          <ul>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+            <li><a href="/pilot">Founding-practice pilot</a></li>
+            <li><a href="/trust">Trust</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">For developers &amp; partners</h2>
           <ul>
             <li><a href="/platform">Platform</a></li>
             <li><a href="/scheduling">Scheduling APIs</a></li>
-            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/claims">Claims &amp; interoperability</a></li>
             <li><a href="/architecture">Architecture</a></li>
-            <li><a href="/pilot">Pilot</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Docs</h5>
+          <h2 class="footer-heading">Company</h2>
           <ul>
-            <li><a href="/docs">Docs / start</a></li>
-            <li><a href="/trust">Trust</a></li>
-            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
-            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
+            <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
             <li><a href="/privacy">Privacy</a></li>
@@ -266,11 +303,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc. Sister platform: <a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a>.</p>
         <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
       </div>
     </div>
   </footer>
-  <script src="/js/site.js"></script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Cloud Dental Office — marketing site
 
-Static marketing site for [clouddentaloffice.com](https://clouddentaloffice.com).
+Static marketing site for `{{PRIMARY_DOMAIN}}`.
 
 Deploys to Cloudflare Pages project `clouddentaloffice-www`.
 
@@ -8,24 +8,44 @@ Sister to [cloudhealthoffice.com](https://cloudhealthoffice.com) (`src/site/` in
 
 ## What this is
 
-A source-available Apache 2.0 dental practice platform site. Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
+Cloud Dental Office is one cloud system for scheduling, eligibility, claims, and payments for independent and small-group dental practices ({{LICENSE_WORDING}}). The site speaks to practice owners first; architecture and API detail live under **For developers & partners**. Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
 
 Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/aurelianware/clouddentaloffice)
 
 ## Pages
 
-| Path | Purpose |
-| --- | --- |
-| `/` | Home — system of record, intake isolation, bounded contexts |
-| `/platform` | Nine services, portal, gateway, public edge |
-| `/scheduling` | Public availability + booking-request contract (202 / 409 / 503) |
-| `/claims` | 837D / 270/271 / 835 status — honest, no invented coverage |
-| `/architecture` | Private PHI network, one public door (IntakeService) |
-| `/pilot` | Zocdoc scheduling-API pilot with 3rd Set Smiles — stated once, factually |
-| `/docs` | Clone, Compose, Kubernetes |
-| `/trust` | Isolation boundary. No SOC 2 / HITRUST claim. |
-| `/contact` | Pilot inquiry — mailto, nothing stored on this site |
-| `/privacy` | Marketing-site privacy notes |
+| Path | Audience | Purpose |
+| --- | --- | --- |
+| `/` | Practice owners | Office pain, how it works, honest status, privacy, founder, pilot CTA |
+| `/features` | Practice owners | Ready / in progress / reserved, based on the product repo |
+| `/integrations` | Practice owners | Zocdoc, practice website, Cloud Health Office, Stedi, Stripe |
+| `/pilot` | Practice owners | Founding-practice pilot (October 2026); 3rd Set Smiles stated once, factually |
+| `/about` | Practice owners | Founder and company |
+| `/contact` | Practice owners | Pilot inquiry: mailto, nothing stored on this site |
+| `/trust` | Both | Isolation boundary. No SOC 2 / HITRUST claim. |
+| `/platform` | Developers & partners | Services, portal, gateway, public edge |
+| `/scheduling` | Developers & partners | Public availability + booking-request contract (202 / 409 / 503) |
+| `/claims` | Developers & partners | 837D / 270/271 / 835 status: honest, no invented coverage |
+| `/architecture` | Developers & partners | Private PHI network, one public door (IntakeService) |
+| `/docs` | Developers & partners | Clone, Compose, Kubernetes |
+| `/privacy` | Both | Marketing-site privacy notes |
+
+Pages are plain HTML with the header, nav, and footer repeated in each file. When you change the nav or footer, change it in every page.
+
+## Placeholders
+
+Values in `{{DOUBLE_BRACES}}` are filled in before launch: `PRIMARY_DOMAIN`, `LICENSE_WORDING`, `LICENSE_URL`, `PILOT_PRICING`, `ZOCDOC_REFERRAL_URL`, `ZOCDOC_CONFIRMATION_MODEL`, `STEDI_ROLE`. Find them with `grep -rn "{{" --include=*.html --include=*.xml --include=*.txt .`. The link check treats `https://{{PRIMARY_DOMAIN}}/…` as internal.
+
+## Brand assets
+
+Logos live in `/brand`. The header uses `brand/cdo-horizontal-on-dark.svg` and the footer uses `brand/cdo-stacked-on-dark.svg`. `brand/cdo-icon.svg` is the source for the favicons and share image.
+
+After replacing any of them, regenerate the PNGs (`og-image.png`, `favicon.ico`, `favicon-32x32.png`, `apple-touch-icon.png`, `brand/cdo-icon-{192,512}.png`):
+
+```sh
+npm i --no-save puppeteer-core
+CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node scripts/build-brand-images.mjs
+```
 
 ## Deploy — Cloudflare Pages
 

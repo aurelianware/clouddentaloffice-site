@@ -3,166 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilot — Cloud Dental Office</title>
-  <meta name="description" content="Zocdoc scheduling-API pilot with 3rd Set Smiles, Tempe, AZ. This is a channel adapter over Cloud Dental Office’s public availability contract — not a certified partnership, and not a patient website." />
-  <link rel="canonical" href="https://clouddentaloffice.com/pilot" />
+  <title>Founding-practice pilot, October 2026 — Cloud Dental Office</title>
+  <meta name="description" content="Join the Cloud Dental Office founding-practice pilot starting October 2026: hands-on onboarding, a direct line to the founder, and a say in the roadmap." />
+  <link rel="canonical" href="https://{{PRIMARY_DOMAIN}}/pilot" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://clouddentaloffice.com/pilot" />
-  <meta property="og:title" content="Pilot — Cloud Dental Office" />
-  <meta property="og:description" content="Zocdoc scheduling-API pilot with 3rd Set Smiles, Tempe, AZ. This is a channel adapter over Cloud Dental Office’s public availability contract — not a certified partnership, and not a patient website." />
-  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta property="og:url" content="https://{{PRIMARY_DOMAIN}}/pilot" />
+  <meta property="og:title" content="Founding-practice pilot, October 2026 — Cloud Dental Office" />
+  <meta property="og:description" content="Join the Cloud Dental Office founding-practice pilot starting October 2026: hands-on onboarding, a direct line to the founder, and a say in the roadmap." />
+  <meta property="og:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pilot — Cloud Dental Office" />
-  <meta name="twitter:description" content="Zocdoc scheduling-API pilot with 3rd Set Smiles, Tempe, AZ. This is a channel adapter over Cloud Dental Office’s public availability contract — not a certified partnership, and not a patient website." />
+  <meta name="twitter:title" content="Founding-practice pilot, October 2026 — Cloud Dental Office" />
+  <meta name="twitter:description" content="Join the Cloud Dental Office founding-practice pilot starting October 2026: hands-on onboarding, a direct line to the founder, and a say in the roadmap." />
+  <meta name="twitter:image" content="https://{{PRIMARY_DOMAIN}}/og-image.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Cloud Dental Office",
-    "applicationCategory": "HealthApplication",
-    "operatingSystem": "Cloud (Azure, Kubernetes)",
-    "url": "https://clouddentaloffice.com",
-    "license": "https://www.apache.org/licenses/LICENSE-2.0",
-    "description": "Source-available, cloud-native dental practice management. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.",
-    "author": { "@type": "Organization", "name": "Aurelianware, Inc.", "url": "https://clouddentaloffice.com" },
-    "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://{{PRIMARY_DOMAIN}}/#organization",
+        "name": "Aurelianware, Inc.",
+        "url": "https://{{PRIMARY_DOMAIN}}/",
+        "logo": "https://{{PRIMARY_DOMAIN}}/brand/cdo-icon-512.png",
+        "email": "sales@clouddentaloffice.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Mark Phillips"
+        },
+        "sameAs": [
+          "https://github.com/aurelianware"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://{{PRIMARY_DOMAIN}}/#software",
+        "name": "Cloud Dental Office",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Dental practice management",
+        "operatingSystem": "Web browser",
+        "url": "https://{{PRIMARY_DOMAIN}}/",
+        "image": "https://{{PRIMARY_DOMAIN}}/og-image.png",
+        "description": "One cloud system for scheduling, eligibility, claims, and payments that helps independent dental practices get paid faster.",
+        "license": "{{LICENSE_URL}}",
+        "publisher": {
+          "@id": "https://{{PRIMARY_DOMAIN}}/#organization"
+        },
+        "sameAs": [
+          "https://github.com/aurelianware/clouddentaloffice"
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="/css/sentinel.css" />
   <link rel="stylesheet" href="/css/conversion.css" />
-  <script src="/js/mobile-nav.js"></script>
-  
+  <script src="/js/mobile-nav.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
-  <nav>
+  <nav aria-label="Main">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
-        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
-        <span class="nav-logo-lockup">
-          <span class="nav-logo-text">Cloud Dental Office</span>
-          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
-        </span>
+        <img src="/brand/cdo-horizontal-on-dark.svg" alt="" class="nav-logo-img" width="252" height="40" />
       </a>
       <div class="nav-right">
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav" id="mobileMenuToggle">&#9776;</button>
         <ul id="mainNav">
-          <li><a href="/platform">Platform</a></li>
-          <li><a href="/scheduling">Scheduling APIs</a></li>
-          <li><a href="/claims">Claims</a></li>
-          <li><a href="/architecture">Architecture</a></li>
+          <li><a href="/features">Features</a></li>
+          <li><a href="/integrations">Integrations</a></li>
           <li><a href="/pilot" aria-current="page">Pilot</a></li>
-          <li><a href="/docs">Docs</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="/trust">Trust</a></li>
-          <li><a href="/contact" style="color:#00ffff; font-weight:bold;">Contact</a></li>
+          <li class="nav-group">
+            <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
+            <ul class="nav-group__menu" id="devMenu">
+              <li><a href="/platform">Platform</a></li>
+              <li><a href="/scheduling">Scheduling APIs</a></li>
+              <li><a href="/claims">Claims &amp; interoperability</a></li>
+              <li><a href="/architecture">Architecture</a></li>
+              <li><a href="/docs">Docs</a></li>
+              <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact" class="nav-cta">Join the pilot</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <main id="main-content">
 
-    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Pilot / Partners">
+    <header class="hero-section hero-section--page" aria-labelledby="page-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="section-eyebrow">Pilot / Partners</span>
-        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">One scheduling-API pilot. Stated as a fact.</h1>
-        <p class="hero-subheadline" style="margin-bottom:32px;">A Zocdoc scheduling integration is in pilot with an independent Tempe practice. This page is the only place we mention it. This is not a patient website, and it is not a certified partnership.</p>
+        <span class="section-eyebrow">Founding-practice pilot</span>
+        <h1 id="page-heading" class="section-title page-title">Be one of the first practices on Cloud Dental Office.</h1>
+        <p class="hero-subheadline">The pilot starts in October 2026. A small group of independent and small-group practices, working directly with the founder.</p>
         <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
-      </div>
+          <a href="/contact" class="button">Apply for the pilot &rarr;</a>
+          <a href="/features" class="button button-secondary">See what&rsquo;s ready</a>
+        </div>
       </div>
     </header>
-    <section>
+
+    <section aria-labelledby="get-heading">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Reference practice</span>
-          <h2 class="section-title">3rd Set Smiles</h2>
-          <p class="section-subtitle" style="margin:0; max-width:none;">Dr. Matthew Phillips, DDS. Tempe, AZ. Independent veteran-owned comprehensive practice.</p>
+        <div class="section-header section-header--left">
+          <span class="section-eyebrow">What founding practices get</span>
+          <h2 id="get-heading" class="section-title">More attention than a normal customer gets.</h2>
+        </div>
+        <div class="feature-grid feature-grid--compact">
+          <div class="feature-card"><h3>Hands-on onboarding</h3><p>We set it up with your team, at your office&rsquo;s pace. You aren&rsquo;t handed a login and a help center.</p></div>
+          <div class="feature-card"><h3>A direct line to the founder</h3><p>Questions and problems go to the person who built it. No ticket queue, no call center.</p></div>
+          <div class="feature-card"><h3>Roadmap influence</h3><p>What you need moves up the list. The <a href="/features#in-progress">in-progress</a> and <a href="/features#reserved">reserved</a> items get built in the order founding practices need them.</p></div>
+          <div class="feature-card"><h3>Pricing</h3><p>{{PILOT_PRICING}}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ask-heading" class="band band--dark">
+      <div class="section-wrapper">
+        <div class="section-header section-header--left">
+          <span class="section-eyebrow">What we ask</span>
+          <h2 id="ask-heading" class="section-title">Two things.</h2>
         </div>
         <div class="feature-grid">
+          <div class="feature-card"><h3>Honest feedback</h3><p>Tell us what is slow, confusing, or missing, while it is still easy to change. The software is shaped by what happens at your front desk.</p></div>
+          <div class="feature-card"><h3>A case study, if it goes well</h3><p>If the pilot works for your office, we ask to tell the story, with your approval of every word. If it doesn&rsquo;t, we don&rsquo;t.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="first-heading">
+      <div class="section-wrapper">
+        <div class="integration">
+          <div>
+            <span class="section-eyebrow">First pilot practice</span>
+            <h2 id="first-heading" class="section-title">3rd Set Smiles</h2>
+            <p>Dr. Matthew Phillips, DDS. Tempe, AZ. An independent, veteran-owned comprehensive practice.</p>
+            <p>3rd Set Smiles is the first pilot practice. Cloud Dental Office is its system of record, and a Zocdoc scheduling integration is in pilot there.</p>
+          </div>
           <div class="feature-card">
             <h3>Where</h3>
             <p>2600 E Southern Ave, Suite B1<br>Tempe, AZ</p>
-            <p>Independent veteran-owned comprehensive practice. Cloud Dental Office is the system of record. The practice website is a channel, not the calendar.</p>
-          </div>
-          <div class="feature-card">
-            <h3>What the pilot is</h3>
-            <ul class="benefit-list">
-              <li>Zocdoc is a channel adapter over the public availability and booking-intake contract.</li>
-              <li>It reads free/bookable slots. It submits booking intent.</li>
-              <li>It does not become the calendar. It does not see PHI.</li>
-              <li>Staff still approve BookingRequest records in the portal.</li>
-            </ul>
+            <p>This site is for practices evaluating the software. For appointments or care, contact the practice directly.</p>
           </div>
         </div>
+        <p class="fine-print">We won&rsquo;t list your practice here unless you ask us to.</p>
       </div>
     </section>
-    <section style="background:#0a0a0a;">
-      <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">What this site is not</span>
-          <h2 class="section-title">Do not confuse the platform with the practice.</h2>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card"><h3>Not a patient site</h3><p>Bookings, insurance questions, and clinical care live with the practice. This site is for operators evaluating the platform.</p></div>
-          <div class="feature-card"><h3>Not a certification</h3><p>We do not claim a Zocdoc partnership, a marketplace badge, or a completed certification. The work is a pilot.</p></div>
-          <div class="feature-card"><h3>Not coupled in code</h3><p>No practice name or internal patient, provider, or location identifier is hard-wired into IntakeService. Slugs, not database ids.</p></div>
-        </div>
-        <p style="margin-top:28px;">The public contract is documented on <a href="/scheduling">Scheduling APIs</a>. Isolation and failure behavior are on <a href="/trust">Trust</a>.</p>
-      </div>
-    </section>
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <h2 style="color:#fff; text-shadow:none;">If you run a practice and want a channel on the same contract, talk to us.</h2>
-      <p>We will not put your name on this page unless you ask.</p>
+
+    <section class="cta-section" id="next-step" aria-labelledby="pilot-cta">
+      <h2 id="pilot-cta">Tell us about your office.</h2>
+      <p>How many chairs, what you use today, and where the money gets stuck. We reply personally.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/contact" class="button">Apply for the pilot &rarr;</a>
+        <a href="/about" class="button button-secondary">About the founder</a>
       </div>
     </section>
 
   </main>
-    <div id="stickyCta" class="sticky-cta" role="region" aria-label="Talk about a pilot">
-    <p class="sticky-cta__text">Ready to evaluate the platform?</p>
-    <a href="/contact" class="button sticky-cta__primary">Talk about a pilot &rarr;</a>
-    <a href="https://github.com/aurelianware/clouddentaloffice" class="button sticky-cta__secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <div id="stickyCta" class="sticky-cta" role="region" aria-label="Founding-practice pilot">
+    <p class="sticky-cta__text">Founding-practice pilot starts October 2026.</p>
+    <a href="/pilot" class="button sticky-cta__primary">Join the pilot &rarr;</a>
+    <a href="/#how-it-works" class="button sticky-cta__secondary">How it works</a>
   </div>
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h4>Cloud Dental Office</h4>
-          <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
-          <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
-          <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
+          <img src="/brand/cdo-stacked-on-dark.svg" alt="Cloud Dental Office" class="footer-brand-img" width="180" height="72"/>
+          <p>One cloud system for scheduling, eligibility, claims, and payments. Built to help independent dental practices get paid.</p>
+          <p>{{LICENSE_WORDING}} &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
         </div>
         <div class="footer-col">
-          <h5>Product</h5>
+          <h2 class="footer-heading">Practices</h2>
+          <ul>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/integrations">Integrations</a></li>
+            <li><a href="/pilot">Founding-practice pilot</a></li>
+            <li><a href="/trust">Trust</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">For developers &amp; partners</h2>
           <ul>
             <li><a href="/platform">Platform</a></li>
             <li><a href="/scheduling">Scheduling APIs</a></li>
-            <li><a href="/claims">Claims & interoperability</a></li>
+            <li><a href="/claims">Claims &amp; interoperability</a></li>
             <li><a href="/architecture">Architecture</a></li>
-            <li><a href="/pilot">Pilot</a></li>
+            <li><a href="/docs">Docs</a></li>
+            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Docs</h5>
+          <h2 class="footer-heading">Company</h2>
           <ul>
-            <li><a href="/docs">Docs / start</a></li>
-            <li><a href="/trust">Trust</a></li>
-            <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></li>
-            <li><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
+            <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a></li>
             <li><a href="/privacy">Privacy</a></li>
@@ -170,11 +217,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc.. Sister platform: <a href="https://cloudhealthoffice.com">Cloud Health Office</a>.</p>
+        <p>&copy; 2026 Cloud Dental Office — Aurelianware, Inc. Sister platform: <a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">Cloud Health Office</a>.</p>
         <p><a href="/privacy">Privacy</a> &nbsp;&middot;&nbsp; <a href="/trust">Trust</a> &nbsp;&middot;&nbsp; <a href="/contact">Contact</a></p>
       </div>
     </div>
   </footer>
-  <script src="/js/site.js"></script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>
