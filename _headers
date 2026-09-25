@@ -8,9 +8,9 @@
 # .xml -> application/xml, .txt -> text/plain, .html -> text/html).
 #
 # IMPORTANT — path matching: Cloudflare Pages matches _headers patterns against
-# the REQUEST path, not the file that is ultimately served. Because pages are
-# served at clean URLs (e.g. /pricing, rewritten to /pricing.html via
-# _redirects), a "/*.html" rule would never match those requests. So the HTML
+# the REQUEST path, not the file that is ultimately served. Because Pages serves
+# pages at clean URLs natively (e.g. /platform serves platform.html), a
+# "/*.html" rule would never match those requests. So the HTML
 # cache policy is set as the default on "/*" instead, and the long-lived asset
 # caches override it on their more specific paths. (When multiple rules match,
 # the more specific path wins for a conflicting header; "/*" is listed first so

@@ -1,0 +1,25 @@
+name: Link check
+
+# Fails if any internal link, asset reference, anchor, or sitemap entry points
+# at a file that does not exist, if a link uses a .html URL instead of the
+# clean URL, or if _redirects reintroduces a .html rewrite rule (which loops
+# on Cloudflare Pages). No dependencies; see scripts/check-links.py.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check internal links
+        run: python3 scripts/check-links.py
