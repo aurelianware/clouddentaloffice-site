@@ -2,6 +2,8 @@
 
 Static marketing site for [clouddentaloffice.com](https://clouddentaloffice.com).
 
+Deploys to Cloudflare Pages project `clouddentaloffice-www`.
+
 Sister to [cloudhealthoffice.com](https://cloudhealthoffice.com) (`src/site/` in the Cloud Health Office repo). Same Sentinel visual language: absolute black, cyan accent, founder-written copy.
 
 ## What this is
@@ -27,14 +29,33 @@ Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/a
 
 ## Deploy — Cloudflare Pages
 
-This site is designed to deploy on **Cloudflare Pages**, which reads the
-`_redirects` and `_headers` files natively — clean URLs (`/platform` → `platform.html`)
-and custom HTTP headers both work with no build step.
+Static files, no build step. Cloudflare Pages serves `_headers` natively and
+serves clean URLs on its own: `/platform` serves `platform.html`, and a request
+for `/platform.html` gets a 308 redirect to `/platform`.
 
-### One-time setup
+### How it deploys today
 
-1. **Connect the repo** — in the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git**, then pick `aurelianware/clouddentaloffice-www-or--site`.
-2. **Build settings** — this is a static site, so leave them empty:
+`.github/workflows/deploy.yml` runs on every push to `main` (and on manual
+dispatch). It uses `wrangler pages deploy` to upload the repo root to the
+`clouddentaloffice-www` project as a Direct Upload. It needs two repository
+secrets: `CLOUDFLARE_API_TOKEN` (Cloudflare Pages: Edit) and
+`CLOUDFLARE_ACCOUNT_ID`.
+
+`.github/workflows/link-check.yml` runs `scripts/check-links.py` on every pull
+request and push. Run it locally before pushing:
+
+```sh
+python3 scripts/check-links.py
+```
+
+### Alternative: Cloudflare Git integration
+
+Use this only if you retire the Actions deploy. Cloudflare cannot attach Git to
+a Direct Upload project, so this means creating a new Pages project. Never run
+both, or every push deploys twice.
+
+1. **Connect the repo.** In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git**, then pick `aurelianware/clouddentaloffice-site`.
+2. **Build settings.** This is a static site, so leave them empty:
    - Framework preset: **None**
    - Build command: *(blank)*
    - Build output directory: **`/`** (the repo root)
@@ -43,22 +64,20 @@ and custom HTTP headers both work with no build step.
 
 ### Custom domain
 
-4. In the new Pages project: **Custom domains → Set up a domain → `clouddentaloffice.com`** (add `www.clouddentaloffice.com` too if you want the `www` host).
+4. In the Pages project: **Custom domains → Set up a domain → `clouddentaloffice.com`** (add `www.clouddentaloffice.com` too if you want the `www` host).
 5. Point DNS at Cloudflare:
-   - Easiest: move the `clouddentaloffice.com` zone to Cloudflare (update the registrar's nameservers). Cloudflare then adds the Pages DNS records and TLS automatically.
-   - Or, keep DNS elsewhere and add a `CNAME` record for `clouddentaloffice.com` → `<project>.pages.dev`.
+   - Apex (`clouddentaloffice.com`): Pages requires the zone to be on Cloudflare. Move the nameservers to Cloudflare.
+   - Subdomain (`www`): either move the zone, or keep DNS elsewhere and add a `CNAME` for `www` → `clouddentaloffice-www.pages.dev`. **Add the domain in the Pages project first.** A bare CNAME without it returns Cloudflare error 1001.
 6. TLS certificates are issued automatically once DNS resolves.
 
 ### Notes
 
-- `_redirects` maps every clean URL (`/platform`, `/scheduling`, …) to its `.html` file with a `200` rewrite.
-- `_headers` sets custom HTTP headers (caching, security). **Both files are Cloudflare-specific and are ignored by GitHub Pages.**
-- The `CNAME` file is a GitHub-Pages convention. It is harmless but **unused** on Cloudflare — the domain is configured in the dashboard instead. Leave it in place only if you also want GitHub Pages to work.
+- **Do not add `.html` rewrite rules to `_redirects`** (for example `/platform /platform.html 200`). Cloudflare Pages already serves clean URLs and redirects `/platform.html` → `/platform`. A rule that rewrites back to `.html` fights that redirect and makes every page loop. That is exactly what broke navigation before. The link check fails if one comes back. Use `_redirects` only for real moves (old path → new path, `301`).
+- Link to clean URLs (`/platform`), never `/platform.html`. The link check enforces this.
+- `404.html` at the root is served automatically, with a 404 status, for unknown paths. Keep it; without it Pages treats the site as a single-page app and serves `index.html` for every path.
+- `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
+- `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
 - Contact form opens the visitor's mail client to `sales@clouddentaloffice.com`. No Formspree, no backend.
-
-### Fallback: GitHub Pages
-
-GitHub Pages can serve this repo (`main`, `/`) but **ignores `_redirects` and `_headers`** — you would lose clean URLs and custom headers unless you restructure each page into a `page/index.html` folder. Cloudflare Pages is recommended.
 
 ## Voice
 

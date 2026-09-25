@@ -8,3 +8,6 @@ Thumbs.db
 # Logs / tmp
 *.log
 node_modules/
+
+# Local Cloudflare Pages emulator (wrangler pages dev)
+.wrangler/
