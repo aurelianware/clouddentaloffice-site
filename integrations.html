@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trust — Cloud Dental Office</title>
-  <meta name="description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
-  <link rel="canonical" href="https://clouddental.io/trust" />
+  <title>Integrations: Zocdoc, your website, claims, payments — Cloud Dental Office</title>
+  <meta name="description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
+  <link rel="canonical" href="https://clouddental.io/integrations" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -14,16 +14,16 @@
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://clouddental.io/trust" />
-  <meta property="og:title" content="Trust — Cloud Dental Office" />
-  <meta property="og:description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
+  <meta property="og:url" content="https://clouddental.io/integrations" />
+  <meta property="og:title" content="Integrations: Zocdoc, your website, claims, payments — Cloud Dental Office" />
+  <meta property="og:description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
   <meta property="og:image" content="https://clouddental.io/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Trust — Cloud Dental Office" />
-  <meta name="twitter:description" content="Cloud Dental Office does not claim SOC 2 or HITRUST. IntakeService is isolated, disabled by default, API-key gated, and has no read path to PHI databases." />
+  <meta name="twitter:title" content="Integrations: Zocdoc, your website, claims, payments — Cloud Dental Office" />
+  <meta name="twitter:description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
   <meta name="twitter:image" content="https://clouddental.io/og-image.png" />
   <script type="application/ld+json">
   {
@@ -80,10 +80,10 @@
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav" id="mobileMenuToggle">&#9776;</button>
         <ul id="mainNav">
           <li><a href="/features">Features</a></li>
-          <li><a href="/integrations">Integrations</a></li>
+          <li><a href="/integrations" aria-current="page">Integrations</a></li>
           <li><a href="/pilot">Pilot</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/trust" aria-current="page">Trust</a></li>
+          <li><a href="/trust">Trust</a></li>
           <li class="nav-group">
             <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
             <ul class="nav-group__menu" id="devMenu">
@@ -102,89 +102,113 @@
   </nav>
   <main id="main-content">
 
-    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Trust">
+    <header class="hero-section hero-section--page" aria-labelledby="page-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="section-eyebrow">Trust</span>
-        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Trust starts with clear boundaries.</h1>
-        <p class="hero-subheadline" style="margin-bottom:32px;">Cloud Dental Office is source-available practice infrastructure, not a certification claim. This page states what is in the repository, what IntakeService cannot do, and what we do not put on a badge.</p>
-        <div class="hero-cta">
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button" target="_blank" rel="noopener noreferrer">Read the source &rarr;</a>
-        <a href="/contact" class="button button-secondary">Send a questionnaire &rarr;</a>
-      </div>
+        <span class="section-eyebrow">Integrations</span>
+        <h1 id="page-heading" class="section-title page-title">Other services connect to your schedule. They don&rsquo;t replace it.</h1>
+        <p class="hero-subheadline">Cloud Dental Office holds the calendar, the patient record, and the balance. Other services connect at the edges. Here is what connects today and how.</p>
       </div>
     </header>
-    <section>
+
+    <section id="zocdoc" aria-labelledby="zocdoc-heading">
       <div class="section-wrapper">
-        <div class="trust-strip__inner">
-          <div class="trust-item"><div><strong>Source visible</strong><span>Isolation, booking flow, and availability engine are in the public repository.</span></div></div>
-          <div class="trust-item"><div><strong>Disabled by default</strong><span>Public booking returns 404 until PublicBooking:Enabled is true.</span></div></div>
-          <div class="trust-item"><div><strong>No PHI read path</strong><span>IntakeService cannot read patient, clinical, or scheduling databases.</span></div></div>
-          <div class="trust-item"><div><strong>No borrowed badges</strong><span>We do not claim SOC 2, HITRUST, or a certified Zocdoc partnership.</span></div></div>
+        <div class="integration">
+          <div>
+            <!-- TODO: approved partner logo -->
+            <span class="status status--progress">In progress</span>
+            <h2 id="zocdoc-heading" class="section-title">Zocdoc</h2>
+            <p class="lede">New patients book through Zocdoc and land on your schedule.</p>
+            <p>Your open times on Zocdoc come from the same calendar your staff work from, the same one your website booking reads. When a time is booked or blocked in the office, it comes off Zocdoc. When a patient books on Zocdoc, the appointment comes back to your schedule with the patient attached.</p>
+            <p><strong>Confirmation:</strong> {{ZOCDOC_CONFIRMATION_MODEL}}</p>
+            <p>Built and tested against Zocdoc&rsquo;s sandbox. Going live for a practice needs Zocdoc&rsquo;s approval. A Zocdoc scheduling integration is in pilot with <a href="/pilot">3rd Set Smiles</a>.</p>
+            <p><a href="{{ZOCDOC_REFERRAL_URL}}" class="button button-secondary" target="_blank" rel="noopener noreferrer">Not on Zocdoc yet? Start here &rarr;</a></p>
+          </div>
+          <div class="feature-card">
+            <h3>What Zocdoc can and can&rsquo;t see</h3>
+            <ul class="benefit-list">
+              <li>Sees: the open times you publish, by provider, location, and visit type.</li>
+              <li>Doesn&rsquo;t see: your patient records, charts, or other appointments.</li>
+              <li>Cancellations and reschedules stay in step both ways.</li>
+              <li>If Zocdoc is down, your schedule keeps working.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fine-print">Zocdoc is a separate company. Using its scheduling API is not an endorsement by Zocdoc, and we don&rsquo;t claim a partnership or certification.</p>
+      </div>
+    </section>
+
+    <section id="website" aria-labelledby="website-heading" class="band band--dark">
+      <div class="section-wrapper">
+        <div class="integration">
+          <div>
+            <span class="status status--ready">Ready</span>
+            <h2 id="website-heading" class="section-title">Your practice website</h2>
+            <p class="lede">A &ldquo;Book online&rdquo; button that shows real open times.</p>
+            <p>Your website shows open times from your calendar. A patient picks one and sends a request. Your staff see it in Appointment Requests, match the patient, and approve it. If the booking service can&rsquo;t take a request, it says so right away, so your website can fall back to email instead of losing it.</p>
+          </div>
+          <div class="feature-card">
+            <h3>For your web developer</h3>
+            <p>The availability and booking-request APIs are documented on <a href="/scheduling">Scheduling APIs</a>.</p>
+          </div>
         </div>
       </div>
     </section>
-    <section style="background:#0a0a0a;">
+
+    <section id="claims" aria-labelledby="cho-heading">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Current assurance status</span>
-          <h2 class="section-title">What is public, what is configurable, what is not claimed.</h2>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card"><p class="case-card-tag">Public & implemented</p><h3>Intake isolation</h3><p>API key compared in constant time. Rate limit 5/min per IP. Isolated inbox. BookingRequestedEvent over Service Bus. Token revalidation with 409 on stale slots.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Reference architecture</p><h3>Private network for PHI</h3><p>Portal, YARP, and every PHI-bearing service stay private. Only IntakeService is designed to face the internet.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Not currently claimed</p><h3>Aurelianware certifications</h3><p>This site does not claim that Aurelianware or Cloud Dental Office currently holds SOC 2 Type II or HITRUST certification.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Pilot, not certified</p><h3>Zocdoc</h3><p>Scheduling-API pilot only. Not presented as a partnership or marketplace certification.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Contractual</p><h3>BAA, SLA, support</h3><p>PHI processing, support coverage, and incident terms are defined per engagement. Visitor-submitted intake data must still be handled as sensitive healthcare information.</p></div>
-          <div class="feature-card"><p class="case-card-tag">Customer-operated</p><h3>Production effectiveness</h3><p>Identity, networks, keys, logging, and recovery must be verified in the target environment. A repository is not a production control.</p></div>
+        <div class="integration">
+          <div>
+            <span class="status status--ready">Ready</span>
+            <h2 id="cho-heading" class="section-title">Cloud Health Office</h2>
+            <p class="lede">Our sister platform for claims.</p>
+            <p>Claims go out through Cloud Health Office, built by the same team. What comes back is the claim&rsquo;s status, a timeline, the patient&rsquo;s portion, and the payment, posted to the ledger. Your staff never see payer file formats or clearinghouse names.</p>
+          </div>
+          <div class="feature-card">
+            <h3>More detail</h3>
+            <p><a href="/claims">Claims &amp; interoperability</a> &middot; <a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com</a></p>
+          </div>
         </div>
       </div>
     </section>
-    <section>
+
+    <section id="stedi" aria-labelledby="stedi-heading" class="band band--dark">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Intake boundary</span>
-          <h2 class="section-title">What IntakeService is allowed to do.</h2>
-        </div>
-        <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Action</th><th>Allowed</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr><td>Accept name, phone, optional email, preferredStart</td><td>Yes</td><td>Minimum necessary for appointment intake.</td></tr>
-              <tr><td>Publish BookingRequestedEvent</td><td>Yes</td><td>202 only after the event is on the bus.</td></tr>
-              <tr><td>Expose free/bookable slots + availabilityToken</td><td>Yes</td><td>Slugs, practice timezone, no PHI.</td></tr>
-              <tr><td>Read patient / clinical / scheduling databases</td><td>No</td><td>No connection. Isolated inbox only.</td></tr>
-              <tr><td>Write an Appointment</td><td>No</td><td>Staff create the appointment after review.</td></tr>
-              <tr><td>Return 202 when Service Bus is down</td><td>No</td><td>Returns 503 so the website can fall back.</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- TODO: approved partner logo -->
+        <h2 id="stedi-heading" class="section-title">Stedi</h2>
+        <p>{{STEDI_ROLE}}</p>
       </div>
     </section>
-    <section style="background:#0a0a0a;">
+
+    <section id="payments" aria-labelledby="stripe-heading">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Vulnerability reporting</span>
-          <h2 class="section-title">Report privately. Do not file PHI in public issues.</h2>
+        <div class="integration">
+          <div>
+            <!-- TODO: approved partner logo -->
+            <span class="status status--progress">In progress</span>
+            <h2 id="stripe-heading" class="section-title">Stripe</h2>
+            <p class="lede">Patients pay their balance online, into your own account.</p>
+            <p>Your practice connects its own Stripe account. Patients pay on Stripe&rsquo;s hosted checkout page, and the money settles in your account, not ours. The payment posts to the patient&rsquo;s ledger only after Stripe confirms it. Card numbers never touch Cloud Dental Office.</p>
+            <p>Built and tested in Stripe&rsquo;s test environment. The first live payments come with the pilot.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Your account, your payouts</h3>
+            <p>Stripe onboards the practice directly and pays out to your bank. Turning off online payments in Cloud Dental Office doesn&rsquo;t close your Stripe account.</p>
+          </div>
         </div>
-        <p>Do not disclose suspected vulnerabilities, PHI, credentials, or tenant data through public GitHub issues. Email <a href="mailto:sales@clouddentaloffice.com">sales@clouddentaloffice.com</a> with the component, steps, and redacted evidence. The product <a href="https://github.com/aurelianware/clouddentaloffice/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">SECURITY.md</a> is in the repository.</p>
+        <p class="fine-print">Stripe is a separate company. Using its payment APIs is not an endorsement by Stripe.</p>
       </div>
     </section>
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <h2 style="color:#fff; text-shadow:none;">Bring the architecture team. We will walk the isolation boundary in source.</h2>
-      <p>No badges we have not earned.</p>
+
+    <section class="cta-section" aria-labelledby="int-cta">
+      <h2 id="int-cta">Need something to connect that isn&rsquo;t listed?</h2>
+      <p>Tell us what your office uses today. Founding practices shape what gets connected next.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+        <a href="/contact" class="button button-secondary">Ask a question</a>
       </div>
     </section>
-
-  
-
-  
-
-  
 
   </main>
   <div id="stickyCta" class="sticky-cta" role="region" aria-label="Founding-practice pilot">

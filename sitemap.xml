@@ -5,6 +5,30 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://clouddental.io/features</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://clouddental.io/integrations</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://clouddental.io/pilot</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://clouddental.io/about</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://clouddental.io/contact</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://clouddental.io/trust</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://clouddental.io/platform</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -21,19 +45,7 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://clouddental.io/pilot</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://clouddental.io/docs</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://clouddental.io/trust</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://clouddental.io/contact</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
