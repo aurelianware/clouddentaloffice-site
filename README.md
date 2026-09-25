@@ -96,6 +96,7 @@ both, or every push deploys twice.
 - Link to clean URLs (`/platform`), never `/platform.html`. The link check enforces this.
 - `404.html` at the root is served automatically, with a 404 status, for unknown paths. Keep it; without it Pages treats the site as a single-page app and serves `index.html` for every path.
 - `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
+- `/css/*` and `/js/*` are cached for a year as `immutable`. When you change one, bump its `?v=` query in every page (e.g. `/js/site.js?v=2` → `?v=3`), or returning visitors keep the old file.
 - `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
 - Contact form opens the visitor's mail client to `sales@clouddentaloffice.com`. No Formspree, no backend.
 

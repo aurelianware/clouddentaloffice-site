@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     err.hidden = true;
     const subject = encodeURIComponent("Pilot inquiry — " + practice);
     const body = encodeURIComponent("Name: " + name + "\nPractice: " + practice + "\nEmail: " + email + "\n\n" + message);
-    window.location.href = "mailto:sales@clouddentaloffice.com?subject=" + subject + "&body=" + body;
+    window.location.href = "mailto:sales@aurelianware.com?subject=" + subject + "&body=" + body;
     form.hidden = true;
     document.getElementById("contact-thanks").hidden = false;
   });
