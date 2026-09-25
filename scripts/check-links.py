@@ -32,6 +32,13 @@ LINK_ATTRS = {"href", "src", "srcset", "content", "poster", "action"}
 # <meta content> is only a link for these properties.
 META_URL_PROPS = {"og:image", "og:url", "twitter:image"}
 EXTERNAL = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|//)", re.I)
+# Absolute URLs on these hosts are checked as internal links.
+OWN_HOSTS = {
+    "clouddentaloffice.com",
+    "www.clouddentaloffice.com",
+    "clouddental.io",
+    "clouddentaloffice-www.pages.dev",
+}
 
 
 class Collector(HTMLParser):
@@ -79,7 +86,10 @@ def resolve(path):
     else:
         candidates = [rel, rel + ".html", rel + "/index.html"]
     for c in candidates:
-        f = ROOT / c
+        f = (ROOT / c).resolve()
+        # "../" must not escape the upload root: Pages never serves files above it.
+        if not f.is_relative_to(ROOT):
+            continue
         if f.is_file():
             return f
     return None
@@ -106,8 +116,7 @@ def main():
             if EXTERNAL.match(url):
                 # Absolute URLs to our own site are treated as internal.
                 parts = urlsplit(url)
-                own = {"clouddentaloffice.com", "www.clouddentaloffice.com", "clouddental.io"}
-                if parts.hostname not in own:
+                if parts.hostname not in OWN_HOSTS:
                     continue
                 path, frag = parts.path or "/", parts.fragment
             else:
@@ -142,6 +151,21 @@ def main():
             checked += 1
             if (path or "/").endswith(".html") or resolve(path or "/") is None:
                 errors.append(f"sitemap.xml: {loc} -> no page for {path or '/'}")
+
+    # robots.txt: every Sitemap: line must point at a file we ship.
+    robots = ROOT / "robots.txt"
+    if robots.is_file():
+        for n, rule in enumerate(robots.read_text(encoding="utf-8").splitlines(), 1):
+            key, _, value = rule.partition(":")
+            if key.strip().lower() != "sitemap":
+                continue
+            loc = value.strip()
+            parts = urlsplit(loc)
+            checked += 1
+            if parts.hostname not in OWN_HOSTS and "{{" not in loc:
+                errors.append(f"robots.txt:{n}: Sitemap {loc} is not on a site host")
+            elif resolve(parts.path) is None:
+                errors.append(f"robots.txt:{n}: Sitemap {loc} -> no file for {parts.path}")
 
     # 404.html must exist: Cloudflare Pages serves it for unknown paths.
     if not (ROOT / "404.html").is_file():
