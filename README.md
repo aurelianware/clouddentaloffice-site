@@ -47,11 +47,13 @@ Derived from those files:
 (`_headers`), so a changed file needs a new URL or returning visitors keep the
 old one. Give a replaced brand file a new filename. After editing
 `css/sentinel.css`, update the `?v=` on its `<link>` in every page to the new
-content hash:
+content hash. The same applies to `css/conversion.css` and `js/site.js`:
 
 ```sh
-H=$(sha256sum css/sentinel.css | cut -c1-8)
-sed -i -E "s|/css/sentinel\.css(\?v=[0-9a-f]+)?\"|/css/sentinel.css?v=$H\"|" *.html
+for f in css/sentinel.css css/conversion.css js/site.js; do
+  H=$(sha256sum "$f" | cut -c1-8)
+  sed -i -E "s|/${f//./\\.}(\?v=[0-9a-f]+)?\"|/$f?v=$H\"|" *.html
+done
 ```
 
 ## Deploy — Cloudflare Pages
