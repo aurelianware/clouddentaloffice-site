@@ -8,7 +8,7 @@ Sister to [cloudhealthoffice.com](https://cloudhealthoffice.com) (`src/site/` in
 
 ## What this is
 
-A source-available Apache 2.0 dental practice platform site. Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
+The marketing site for Cloud Dental Office, a source-available dental practice platform (Business Source License 1.1; see the product [LICENSING.md](https://github.com/aurelianware/clouddentaloffice/blob/main/LICENSING.md)). Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
 
 Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/aurelianware/clouddentaloffice)
 
@@ -23,8 +23,8 @@ Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/a
 | `/architecture` | Private PHI network, one public door (IntakeService) |
 | `/pilot` | Zocdoc scheduling-API pilot with 3rd Set Smiles — stated once, factually |
 | `/docs` | Clone, Compose, Kubernetes |
-| `/trust` | Isolation boundary. No SOC 2 / HITRUST claim. |
-| `/contact` | Pilot inquiry — mailto, nothing stored on this site |
+| `/trust` | Isolation boundary, license summary. No SOC 2 / HITRUST claim. |
+| `/contact` | Pilot inquiry — Formspree to sales@cloudhealthoffice.com |
 | `/privacy` | Marketing-site privacy notes |
 
 ## Brand assets
@@ -102,7 +102,7 @@ both, or every push deploys twice.
 - `404.html` at the root is served automatically, with a 404 status, for unknown paths. Keep it; without it Pages treats the site as a single-page app and serves `index.html` for every path.
 - `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
 - `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
-- Contact form opens the visitor's mail client to `sales@clouddentaloffice.com`. No Formspree, no backend.
+- Contact form posts to Formspree form `xgojygon`, the same form the cloudhealthoffice.com contact page uses, which delivers to `sales@cloudhealthoffice.com`. Cloud Dental leads carry the subject "Cloud Dental Office pilot inquiry" and `site=clouddentaloffice.com`. If that form restricts allowed domains in Formspree, `clouddentaloffice.com` and `clouddental.io` must be on the list. If the POST fails, the page opens a prefilled email to the same address.
 
 ## Voice
 
