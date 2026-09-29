@@ -18,28 +18,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("contact-form");
   if (!form) return;
-  form.addEventListener("submit", (e) => {
+  const SALES = "sales@cloudhealthoffice.com";
+  const submit = document.getElementById("contact-submit");
+  const err = document.getElementById("contact-error");
+  const showError = (msg, mailto) => {
+    err.textContent = msg;
+    if (mailto) {
+      const a = document.createElement("a");
+      a.href = mailto;
+      a.textContent = "Email " + SALES;
+      err.append(" ", a, ".");
+    }
+    err.hidden = false;
+  };
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = document.getElementById("c-name").value.trim();
     const practice = document.getElementById("c-practice").value.trim();
     const email = document.getElementById("c-email").value.trim();
     const message = document.getElementById("c-message").value.trim();
-    const err = document.getElementById("contact-error");
+    err.hidden = true;
     if (!name || !practice || !email || !message) {
-      err.hidden = false;
-      err.textContent = "Please fill in name, practice, email, and message.";
+      showError("Please fill in name, practice, email, and message.");
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      err.hidden = false;
-      err.textContent = "Please enter a valid email address.";
+      showError("Please enter a valid email address.");
       return;
     }
-    err.hidden = true;
+
+    // Fallback if Formspree is unreachable or rejects the post: a prefilled message
+    // to the same inbox, so the inquiry is never lost.
     const subject = encodeURIComponent("Pilot inquiry — " + practice);
     const body = encodeURIComponent("Name: " + name + "\nPractice: " + practice + "\nEmail: " + email + "\n\n" + message);
-    window.location.href = "mailto:sales@clouddentaloffice.com?subject=" + subject + "&body=" + body;
-    form.hidden = true;
-    document.getElementById("contact-thanks").hidden = false;
+    const mailto = "mailto:" + SALES + "?subject=" + subject + "&body=" + body;
+
+    submit.disabled = true;
+    submit.textContent = "Sending…";
+    try {
+      const data = new FormData(form);
+      data.set("_replyto", email);
+      const res = await fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: data });
+      if (!res.ok) throw new Error("Formspree returned " + res.status);
+      form.style.display = "none"; // .cho-leadform sets display, which overrides [hidden]
+      document.getElementById("contact-thanks").hidden = false;
+    } catch (_) {
+      showError("We could not send the form.", mailto);
+      submit.disabled = false;
+      submit.textContent = "Send message";
+    }
   });
 });
