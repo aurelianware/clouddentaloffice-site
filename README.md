@@ -41,8 +41,16 @@ Derived from those files:
 - `apple-touch-icon.png`: `cdo-icon.svg` centered on navy `#06101a` (iOS has no transparency).
 - `graphics/og-image.png` (1200×630): the horizontal dark-bg logo centered on the hero background.
 
-`/graphics/*` is cached as immutable for a year (`_headers`). If you replace a
-brand file, give it a new filename rather than overwriting it in place.
+`/css/*`, `/js/*`, and `/graphics/*` are cached as immutable for a year
+(`_headers`), so a changed file needs a new URL or returning visitors keep the
+old one. Give a replaced brand file a new filename. After editing
+`css/sentinel.css`, update the `?v=` on its `<link>` in every page to the new
+content hash:
+
+```sh
+H=$(sha256sum css/sentinel.css | cut -c1-8)
+sed -i -E "s|/css/sentinel\.css(\?v=[0-9a-f]+)?\"|/css/sentinel.css?v=$H\"|" *.html
+```
 
 ## Deploy — Cloudflare Pages
 
