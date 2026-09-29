@@ -18,16 +18,17 @@ Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/a
 
 | Path | Purpose |
 | --- | --- |
-| `/` | Home — system of record, intake isolation, bounded contexts |
-| `/platform` | Nine services, portal, gateway, public edge |
-| `/scheduling` | Public availability + booking-request contract (202 / 409 / 503) |
-| `/claims` | 837D / 270/271 / 835 status — honest, no invented coverage |
-| `/architecture` | Private PHI network, one public door (IntakeService) |
-| `/pilot` | Zocdoc scheduling-API pilot with 3rd Set Smiles — stated once, factually |
-| `/docs` | Clone, Compose, Kubernetes |
+| `/` | Home for practice owners: where money leaks, how it works, honest status, privacy, founder, pilot |
+| `/features` | Every feature marked Ready, In progress, or Reserved |
+| `/integrations` | Zocdoc, practice website, Cloud Health Office, Stedi, Stripe |
+| `/pilot` | Founding-practice pilot (October 2026) and the first pilot practice, 3rd Set Smiles |
+| `/about` | Founder and company |
+| `/contact` | Pilot application — Formspree to sales@cloudhealthoffice.com |
 | `/trust` | Isolation boundary, license summary. No SOC 2 / HITRUST claim. |
-| `/contact` | Pilot inquiry — Formspree to sales@cloudhealthoffice.com |
 | `/privacy` | Marketing-site privacy notes |
+| `/platform`, `/scheduling`, `/claims`, `/architecture`, `/docs` | Developer and partner pages, grouped under "For developers & partners" in the nav |
+
+Status labels on `/`, `/features`, and `/integrations` must match the product repo. Re-check them against `aurelianware/clouddentaloffice` before changing copy.
 
 ## Brand assets
 
@@ -47,10 +48,10 @@ Derived from those files:
 (`_headers`), so a changed file needs a new URL or returning visitors keep the
 old one. Give a replaced brand file a new filename. After editing
 `css/sentinel.css`, update the `?v=` on its `<link>` in every page to the new
-content hash. The same applies to `css/conversion.css` and `js/site.js`:
+content hash. The same applies to `css/conversion.css`, `js/site.js`, and `js/mobile-nav.js`:
 
 ```sh
-for f in css/sentinel.css css/conversion.css js/site.js; do
+for f in css/sentinel.css css/conversion.css js/site.js js/mobile-nav.js; do
   H=$(sha256sum "$f" | cut -c1-8)
   sed -i -E "s|/${f//./\\.}(\?v=[0-9a-f]+)?\"|/$f?v=$H\"|" *.html
 done

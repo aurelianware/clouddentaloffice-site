@@ -4,8 +4,8 @@
 Resolves every internal href/src in every *.html file the way Cloudflare
 Pages serves them, and fails if any target is missing. Also checks
 sitemap.xml and robots.txt, rejects the retired clouddentaloffice.com
-address, and guards against the .html rewrite rules
-that caused the redirect loop.
+address and unfilled {{PLACEHOLDER}} templates, and guards against the
+.html rewrite rules that caused the redirect loop.
 
 Rules:
   - "/"            -> index.html
@@ -42,6 +42,8 @@ OWN_HOSTS = {
 # og:image, JSON-LD, a bare hostname in a form field or copy) is wrong. Matched
 # in raw page text, not just attributes, and without requiring a URL prefix.
 RETIRED_HOST = re.compile(r"\bclouddentaloffice\.com\b", re.I)
+# Template placeholders such as {{PILOT_PRICING}} must never ship.
+PLACEHOLDER = re.compile(r"\{\{[A-Z_]+\}\}")
 
 
 class Collector(HTMLParser):
@@ -107,6 +109,8 @@ def main():
         c.feed(text)
         parsed[f] = c
         for n, line in enumerate(text.splitlines(), 1):
+            if PLACEHOLDER.search(line):
+                errors.append(f"{f.relative_to(ROOT)}:{n}: unfilled template placeholder {PLACEHOLDER.search(line).group(0)}")
             if RETIRED_HOST.search(line):
                 errors.append(f"{f.relative_to(ROOT)}:{n}: references clouddentaloffice.com, which is retired; use https://clouddental.io")
 

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claims &amp; interoperability — Cloud Dental Office</title>
-  <meta name="description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
-  <link rel="canonical" href="https://clouddental.io/claims" />
+  <title>Features: ready, in progress, reserved — Cloud Dental Office</title>
+  <meta name="description" content="What Cloud Dental Office does today, what is in progress, and what is planned. Scheduling, website booking, claims, ledger posting, estimates, eligibility, and online payments." />
+  <link rel="canonical" href="https://clouddental.io/features" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -14,16 +14,16 @@
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://clouddental.io/claims" />
-  <meta property="og:title" content="Claims &amp; interoperability — Cloud Dental Office" />
-  <meta property="og:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <meta property="og:url" content="https://clouddental.io/features" />
+  <meta property="og:title" content="Features: ready, in progress, reserved — Cloud Dental Office" />
+  <meta property="og:description" content="What Cloud Dental Office does today, what is in progress, and what is planned. Scheduling, website booking, claims, ledger posting, estimates, eligibility, and online payments." />
   <meta property="og:image" content="https://clouddental.io/graphics/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Claims &amp; interoperability — Cloud Dental Office" />
-  <meta name="twitter:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <meta name="twitter:title" content="Features: ready, in progress, reserved — Cloud Dental Office" />
+  <meta name="twitter:description" content="What Cloud Dental Office does today, what is in progress, and what is planned. Scheduling, website booking, claims, ledger posting, estimates, eligibility, and online payments." />
   <meta name="twitter:image" content="https://clouddental.io/graphics/og-image.png" />
   <script type="application/ld+json">
   {
@@ -82,17 +82,17 @@
       <div class="nav-right">
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav" id="mobileMenuToggle">&#9776;</button>
         <ul id="mainNav">
-          <li><a href="/features">Features</a></li>
+          <li><a href="/features" aria-current="page">Features</a></li>
           <li><a href="/integrations">Integrations</a></li>
           <li><a href="/pilot">Pilot</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/trust">Trust</a></li>
           <li class="nav-group">
-            <button type="button" class="nav-group__toggle is-current" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
+            <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
             <ul class="nav-group__menu" id="devMenu">
               <li><a href="/platform">Platform</a></li>
               <li><a href="/scheduling">Scheduling APIs</a></li>
-              <li><a href="/claims" aria-current="page">Claims &amp; interoperability</a></li>
+              <li><a href="/claims">Claims &amp; interoperability</a></li>
               <li><a href="/architecture">Architecture</a></li>
               <li><a href="/docs">Docs</a></li>
               <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
@@ -105,80 +105,75 @@
   </nav>
   <main id="main-content">
 
-    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Claims &amp; interoperability">
+    <header class="hero-section hero-section--page" aria-labelledby="page-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="section-eyebrow">Claims & interoperability</span>
-        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">The practice sees outcomes. The payer platform sees X12.</h1>
-        <p class="hero-subheadline" style="margin-bottom:32px;">Cloud Dental Office is the practice surface. Cloud Health Office owns payer connectivity and claim intelligence. Staff see lifecycle status, a timeline, patient responsibility, and posted financials — not clearinghouse vendors.</p>
+        <span class="section-eyebrow">Features</span>
+        <h1 id="page-heading" class="section-title page-title">What is ready. What is in progress. What is reserved.</h1>
+        <p class="hero-subheadline">Every item below is marked with where it stands in the code today. If it isn&rsquo;t built, we say so.</p>
         <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
-      </div>
+          <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+          <a href="/#how-it-works" class="button button-secondary">See how it works</a>
+        </div>
       </div>
     </header>
-    <section>
+
+    <section id="ready" aria-labelledby="ready-heading">
       <div class="section-wrapper">
-        <div class="section-header">
-          <span class="section-eyebrow">What ships</span>
-          <h2 class="section-title">Honest status. No invented coverage.</h2>
-        </div>
-        <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Capability</th><th>Surface</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Claim submission</td><td>Cloud Health Office</td><td>Implemented</td></tr>
-              <tr><td>Claim lifecycle</td><td><code>GET /api/claims/{claimId}/intelligence</code></td><td>Implemented</td></tr>
-              <tr><td>Posted financials</td><td>Patient ledger from remittance</td><td>Implemented</td></tr>
-              <tr><td>837D generation</td><td>ClaimsService (clean-room X12)</td><td>Implemented</td></tr>
-              <tr><td>Eligibility</td><td>Payer transaction router</td><td>In progress</td></tr>
-              <tr><td>Predetermination / advanced EOB</td><td>Reserved</td><td>Planned</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    <section style="background:#0a0a0a;">
-      <div class="section-wrapper">
-        <div class="section-header">
-          <span class="section-eyebrow">Transactions</span>
-          <h2 class="section-title">Dental X12, generated in-house.</h2>
-          <p class="section-subtitle">CloudDentalOffice.EdiCommon is a clean-room parser and generator. No vendor SDK in the claim path.</p>
+        <div class="section-header section-header--left">
+          <span class="status status--ready">Ready</span>
+          <h2 id="ready-heading" class="section-title">Built and working today.</h2>
         </div>
         <div class="feature-grid">
-          <div class="feature-card"><h3>837D</h3><p>Dental claim generation from the practice record. Submit to Cloud Health Office. Follow the claim in the portal through intelligence, not raw X12.</p></div>
-          <div class="feature-card"><h3>270 / 271</h3><p>Eligibility verification. The EligibilityService exists. Live payer routing is in progress. We do not claim real-time coverage we have not finished.</p></div>
-          <div class="feature-card"><h3>835 / ERA</h3><p>Remittance processing, claim matching, auto-posting to the patient ledger. Posted billed, insurance, and contractual amounts.</p></div>
+          <div class="feature-card"><h3>Schedule</h3><p>Appointments by provider and operatory, on provider calendars. One calendar: every booking channel reads from it, and none of them keeps its own copy.</p></div>
+          <div class="feature-card"><h3>Website booking requests</h3><p>New patients choose an open time on your website. The request lands in Appointment Requests. Your staff match or create the patient, then approve, decline, or follow up. If the time was taken in the meantime, the request is refused rather than double-booked.</p></div>
+          <div class="feature-card"><h3>Patient records</h3><p>Demographics, insurance and subscriber details, and search. Insurance cards can be scanned so the member ID and group number are read for you.</p></div>
+          <div class="feature-card"><h3>Claims you can follow</h3><p>Build a claim from the recorded visit and submit it through Cloud Health Office, our sister claims platform. Status reads Submitted, Accepted, Processing, Information needed, Denied, Paid, or Partially paid, with a timeline and the next step.</p></div>
+          <div class="feature-card"><h3>Payments posted for you</h3><p>When a claim pays, the charge, the insurance payment, and the contractual adjustment post to the patient&rsquo;s ledger. Refreshing twice never posts twice.</p></div>
+          <div class="feature-card"><h3>Patient ledger and statements</h3><p>Every balance change is a ledger entry, and corrections are new entries rather than edits. Patients can sign in and see their balance and payment history.</p></div>
+          <div class="feature-card"><h3>Treatment-plan estimates</h3><p>Line-by-line insurance estimates for a proposed treatment plan, so the patient hears a number before treatment. Estimates, clearly labeled as not a guarantee. Each payer has to be mapped first.</p></div>
+          <div class="feature-card"><h3>Review invitations</h3><p>After a completed visit, every patient gets the same neutral email invitation to leave a review. Off until you turn it on.</p></div>
         </div>
       </div>
     </section>
-    <section>
+
+    <section id="in-progress" aria-labelledby="progress-heading" class="band band--dark">
       <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Sister platform</span>
-          <h2 class="section-title">Cloud Health Office for payers.</h2>
-          <p class="section-subtitle" style="margin:0; max-width:none;">Together they close provider ↔ payer interoperability. The browser never calls Cloud Health Office. The portal does.</p>
+        <div class="section-header section-header--left">
+          <span class="status status--progress">In progress</span>
+          <h2 id="progress-heading" class="section-title">Built in part. Not live yet.</h2>
         </div>
-        <div class="feature-card">
-          <pre><code>CloudDentalOffice
-  → submit claim to CloudHealthOffice
-  → GET /api/claims/{claimId}/intelligence
-  → practice-facing lifecycle
-     (status, timeline, patient responsibility)
-  → post billed / insurance / contractual amounts
-     to the patient ledger</code></pre>
-          <p>Configure CloudHealthOffice BaseUrl, IntelligencePath, and Enabled. Override the base URL when the payer platform uses a different namespace.</p>
-          <p><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com &rarr;</a> · <a href="https://github.com/aurelianware/cloudhealthoffice" target="_blank" rel="noopener noreferrer">github.com/aurelianware/cloudhealthoffice &rarr;</a></p>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Eligibility checks</h3><p>Staff check a patient&rsquo;s coverage, deductibles, and maximums from the patient&rsquo;s record. The check goes to the payer through Stedi, a healthcare clearinghouse, and the answer is kept with the patient. Each practice&rsquo;s payer connections are being set up for the pilot, so we don&rsquo;t yet claim real-time eligibility for every payer.</p></div>
+          <div class="feature-card"><h3>Online card payments</h3><p>Patients pay their share through Stripe&rsquo;s hosted checkout, into your practice&rsquo;s own Stripe account. Refunds and reconciliation are built and tested in Stripe&rsquo;s test environment. The first live payments come with the pilot.</p></div>
+          <div class="feature-card"><h3>Zocdoc booking</h3><p>Your open times are published to Zocdoc from the same calendar your staff use, and bookings come back to your schedule. Built and tested against Zocdoc&rsquo;s sandbox. Going live needs Zocdoc&rsquo;s approval. <a href="/integrations#zocdoc">Details &rarr;</a></p></div>
         </div>
       </div>
     </section>
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <h2 style="color:#fff; text-shadow:none;">Inspect the claim path. Then talk.</h2>
-      <p>No invented clearinghouse certifications. No invented volumes.</p>
+
+    <section id="reserved" aria-labelledby="reserved-heading">
+      <div class="section-wrapper">
+        <div class="section-header section-header--left">
+          <span class="status status--reserved">Reserved</span>
+          <h2 id="reserved-heading" class="section-title">Planned. Not built.</h2>
+          <p class="section-subtitle section-subtitle--left">Room is left for these in the design. Founding practices help decide the order.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Predeterminations</h3><p>Pre-treatment estimates that come from the payer itself, not a calculation.</p></div>
+          <div class="feature-card"><h3>Prior authorization</h3><p>Request and track authorizations from inside the patient&rsquo;s record.</p></div>
+          <div class="feature-card"><h3>Multi-location groups</h3><p>Run several offices as one group, with group-level setup and reporting. On the roadmap, not built.</p></div>
+          <div class="feature-card"><h3>Text messages</h3><p>Patient notifications go by email today. Text messages are not built.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="features-cta">
+      <h2 id="features-cta">Tell us which of these matters most to your office.</h2>
+      <p>Founding practices help set the order of what gets built next.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+        <a href="/contact" class="button button-secondary">Ask a question</a>
       </div>
     </section>
 
