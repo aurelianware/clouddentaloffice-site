@@ -8,7 +8,7 @@ Sister to [cloudhealthoffice.com](https://cloudhealthoffice.com) (`src/site/` in
 
 ## What this is
 
-A source-available Apache 2.0 dental practice platform site. Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
+The marketing site for Cloud Dental Office, a source-available dental practice platform (Business Source License 1.1; see the product [LICENSING.md](https://github.com/aurelianware/clouddentaloffice/blob/main/LICENSING.md)). Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
 
 Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/aurelianware/clouddentaloffice)
 
@@ -23,7 +23,7 @@ Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/a
 | `/architecture` | Private PHI network, one public door (IntakeService) |
 | `/pilot` | Zocdoc scheduling-API pilot with 3rd Set Smiles — stated once, factually |
 | `/docs` | Clone, Compose, Kubernetes |
-| `/trust` | Isolation boundary. No SOC 2 / HITRUST claim. |
+| `/trust` | Isolation boundary, license summary. No SOC 2 / HITRUST claim. |
 | `/contact` | Pilot inquiry — Formspree to sales@cloudhealthoffice.com |
 | `/privacy` | Marketing-site privacy notes |
 
