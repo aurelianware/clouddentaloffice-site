@@ -106,7 +106,7 @@ The production domain is `clouddental.io`, with its DNS zone on Cloudflare. To a
 - `404.html` at the root is served automatically, with a 404 status, for unknown paths. Keep it; without it Pages treats the site as a single-page app and serves `index.html` for every path.
 - `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
 - `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
-- Contact form posts to Formspree form `xqpanypj` (Cloud Dental only), which is restricted to the `clouddental.io` domain and emails `sales@cloudhealthoffice.com`. The recipient is set in the form's Workflow → Actions in Formspree; no field in the page controls it. If the POST fails, the page offers a prefilled email to the same address.
+- Contact form posts to Formspree form `xqpanypj` (Cloud Dental only), which is restricted to the `clouddental.io` domain and emails `sales@cloudhealthoffice.com`. The recipient is set in the form's Workflow → Actions in Formspree; no field in the page controls it. If the POST fails (network error or non-2xx), the page shows an error with a link to a prefilled email to the same address; nothing opens automatically. Without JavaScript the form posts natively and the browser enforces the `required` fields.
 - **Check Formspree's Spam tab when testing.** Formspree answers `200 {"ok":true}` even when it rejects a submission, e.g. for an unauthorized domain. The rejected entry goes to Spam with an error `_status` and no email is sent, so the page shows success. Keep the form's domain restriction in sync with the site address.
 
 ## Voice

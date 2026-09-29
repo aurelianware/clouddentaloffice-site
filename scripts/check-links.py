@@ -39,8 +39,9 @@ OWN_HOSTS = {
     "clouddentaloffice-www.pages.dev",
 }
 # The old address. It no longer resolves, so any reference to it (canonical,
-# og:image, JSON-LD) is a dead link. Matched in raw page text, not just attributes.
-RETIRED_HOST = re.compile(r"(?:https?:)?//(?:www\.)?clouddentaloffice\.com\b", re.I)
+# og:image, JSON-LD, a bare hostname in a form field or copy) is wrong. Matched
+# in raw page text, not just attributes, and without requiring a URL prefix.
+RETIRED_HOST = re.compile(r"\bclouddentaloffice\.com\b", re.I)
 
 
 class Collector(HTMLParser):

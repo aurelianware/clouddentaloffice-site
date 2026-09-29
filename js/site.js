@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("contact-form");
   if (!form) return;
+  // The markup uses native `required` validation so the no-JS post to Formspree
+  // is still checked. With the script running, show our own messages instead.
+  form.noValidate = true;
   const SALES = "sales@cloudhealthoffice.com";
   const submit = document.getElementById("contact-submit");
   const err = document.getElementById("contact-error");
