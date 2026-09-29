@@ -1,6 +1,8 @@
 # Cloud Dental Office — marketing site
 
-Static marketing site for [clouddentaloffice.com](https://clouddentaloffice.com).
+Static marketing site for [clouddental.io](https://clouddental.io).
+
+`clouddental.io` is the only site address. `clouddentaloffice.com` was the old address and is retired: it has no DNS record, and nothing on the site links to it. The link check fails if a page references it again.
 
 Deploys to Cloudflare Pages project `clouddentaloffice-www`.
 
@@ -89,10 +91,10 @@ both, or every push deploys twice.
 
 ### Custom domain
 
-4. In the Pages project: **Custom domains → Set up a domain → `clouddentaloffice.com`** (add `www.clouddentaloffice.com` too if you want the `www` host).
-5. Point DNS at Cloudflare:
-   - Apex (`clouddentaloffice.com`): Pages requires the zone to be on Cloudflare. Move the nameservers to Cloudflare.
-   - Subdomain (`www`): either move the zone, or keep DNS elsewhere and add a `CNAME` for `www` → `clouddentaloffice-www.pages.dev`. **Add the domain in the Pages project first.** A bare CNAME without it returns Cloudflare error 1001.
+The production domain is `clouddental.io`, with its DNS zone on Cloudflare. To attach a domain to a new Pages project:
+
+4. In the Pages project: **Custom domains → Set up a domain → `clouddental.io`**.
+5. Pages requires an apex domain's zone to be on Cloudflare. For a subdomain you can keep DNS elsewhere and add a `CNAME` → `clouddentaloffice-www.pages.dev`. **Add the domain in the Pages project first.** A bare CNAME without it returns Cloudflare error 1001.
 6. TLS certificates are issued automatically once DNS resolves.
 
 ### Notes
@@ -102,7 +104,7 @@ both, or every push deploys twice.
 - `404.html` at the root is served automatically, with a 404 status, for unknown paths. Keep it; without it Pages treats the site as a single-page app and serves `index.html` for every path.
 - `_headers` sets custom HTTP headers (caching, security). It is Cloudflare-specific.
 - `CNAME` and `.nojekyll` are GitHub Pages conventions. Cloudflare ignores them; the domain is configured in the dashboard.
-- Contact form posts to Formspree form `xgojygon`, the same form the cloudhealthoffice.com contact page uses, which delivers to `sales@cloudhealthoffice.com`. Cloud Dental leads carry the subject "Cloud Dental Office pilot inquiry" and `site=clouddentaloffice.com`. If that form restricts allowed domains in Formspree, `clouddentaloffice.com` and `clouddental.io` must be on the list. If the POST fails, the page opens a prefilled email to the same address.
+- Contact form posts to Formspree form `xgojygon`, the same form the cloudhealthoffice.com contact page uses, which delivers to `sales@cloudhealthoffice.com`. Cloud Dental leads carry the subject "Cloud Dental Office pilot inquiry" and `site=clouddental.io`. If that form restricts allowed domains in Formspree, `clouddental.io` must be on the list. If the POST fails, the page opens a prefilled email to the same address.
 
 ## Voice
 
