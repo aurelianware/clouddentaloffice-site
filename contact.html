@@ -94,7 +94,7 @@
           <p>Thanks. It went to sales@cloudhealthoffice.com. We typically respond within one business day.</p>
           <p><a href="/" class="button">Back to home &rarr;</a></p>
         </div>
-        <form id="contact-form" class="cho-leadform" action="https://formspree.io/f/xgojygon" method="POST" novalidate>
+        <form id="contact-form" class="cho-leadform" action="https://formspree.io/f/xqpanypj" method="POST" novalidate>
           <div>
             <label for="c-name">Name *</label>
             <input id="c-name" name="name" autocomplete="name" placeholder="Your name" />
@@ -111,10 +111,9 @@
             <label for="c-message">Message *</label>
             <textarea id="c-message" name="message" rows="6" placeholder="What you are running, and what you want to evaluate."></textarea>
           </div>
-          <!-- Shared with the cloudhealthoffice.com contact form; _subject and site mark Cloud Dental leads. -->
+          <!-- Cloud Dental's own Formspree form, restricted to clouddental.io. Its email action (set in Formspree, not here) delivers to sales@cloudhealthoffice.com. -->
           <input type="hidden" name="_subject" value="Cloud Dental Office pilot inquiry" />
           <input type="hidden" name="_format" value="plain" />
-          <input type="hidden" name="formRecipient" value="sales@cloudhealthoffice.com" />
           <input type="hidden" name="site" value="clouddental.io" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <p id="contact-error" class="cho-leadform__error" role="alert" hidden></p>
