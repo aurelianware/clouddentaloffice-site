@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claims &amp; interoperability — Cloud Dental Office</title>
-  <meta name="description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
-  <link rel="canonical" href="https://clouddental.io/claims" />
+  <title>About the founder, Mark Phillips — Cloud Dental Office</title>
+  <meta name="description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
+  <link rel="canonical" href="https://clouddental.io/about" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -14,16 +14,16 @@
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cloud Dental Office" />
-  <meta property="og:url" content="https://clouddental.io/claims" />
-  <meta property="og:title" content="Claims &amp; interoperability — Cloud Dental Office" />
-  <meta property="og:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <meta property="og:url" content="https://clouddental.io/about" />
+  <meta property="og:title" content="About the founder, Mark Phillips — Cloud Dental Office" />
+  <meta property="og:description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
   <meta property="og:image" content="https://clouddental.io/graphics/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Claims &amp; interoperability — Cloud Dental Office" />
-  <meta name="twitter:description" content="837D claims, 270/271 eligibility, 835 ERA posting. Cloud Dental Office is the practice surface; Cloud Health Office owns payer connectivity and claim intelligence." />
+  <meta name="twitter:title" content="About the founder, Mark Phillips — Cloud Dental Office" />
+  <meta name="twitter:description" content="Mark Phillips spent 25+ years building healthcare payer core systems (TriZetto/QNXT, Molina, MyQNXT patent). Now he builds software that helps dentists get paid. Aurelianware, Inc." />
   <meta name="twitter:image" content="https://clouddental.io/graphics/og-image.png" />
   <script type="application/ld+json">
   {
@@ -85,14 +85,14 @@
           <li><a href="/features">Features</a></li>
           <li><a href="/integrations">Integrations</a></li>
           <li><a href="/pilot">Pilot</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
           <li><a href="/trust">Trust</a></li>
           <li class="nav-group">
-            <button type="button" class="nav-group__toggle is-current" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
+            <button type="button" class="nav-group__toggle" aria-expanded="false" aria-controls="devMenu">For developers &amp; partners</button>
             <ul class="nav-group__menu" id="devMenu">
               <li><a href="/platform">Platform</a></li>
               <li><a href="/scheduling">Scheduling APIs</a></li>
-              <li><a href="/claims" aria-current="page">Claims &amp; interoperability</a></li>
+              <li><a href="/claims">Claims &amp; interoperability</a></li>
               <li><a href="/architecture">Architecture</a></li>
               <li><a href="/docs">Docs</a></li>
               <li><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">Source on GitHub</a></li>
@@ -105,80 +105,56 @@
   </nav>
   <main id="main-content">
 
-    <header class="hero-section" style="min-height:auto; padding:96px 24px 72px;" aria-label="Claims &amp; interoperability">
+    <header class="hero-section hero-section--page" aria-labelledby="page-heading">
       <div class="hero-circuit-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="section-eyebrow">Claims & interoperability</span>
-        <h1 class="section-title" style="font-size:clamp(2.2rem,4.5vw,3.4rem);">The practice sees outcomes. The payer platform sees X12.</h1>
-        <p class="hero-subheadline" style="margin-bottom:32px;">Cloud Dental Office is the practice surface. Cloud Health Office owns payer connectivity and claim intelligence. Staff see lifecycle status, a timeline, patient responsibility, and posted financials — not clearinghouse vendors.</p>
-        <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
-      </div>
+        <span class="section-eyebrow">About</span>
+        <h1 id="page-heading" class="section-title page-title">A career on the payer side of the claim. Now on the dentist&rsquo;s side.</h1>
       </div>
     </header>
-    <section>
-      <div class="section-wrapper">
-        <div class="section-header">
-          <span class="section-eyebrow">What ships</span>
-          <h2 class="section-title">Honest status. No invented coverage.</h2>
-        </div>
-        <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Capability</th><th>Surface</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Claim submission</td><td>Cloud Health Office</td><td>Implemented</td></tr>
-              <tr><td>Claim lifecycle</td><td><code>GET /api/claims/{claimId}/intelligence</code></td><td>Implemented</td></tr>
-              <tr><td>Posted financials</td><td>Patient ledger from remittance</td><td>Implemented</td></tr>
-              <tr><td>837D generation</td><td>ClaimsService (clean-room X12)</td><td>Implemented</td></tr>
-              <tr><td>Eligibility</td><td>Payer transaction router</td><td>In progress</td></tr>
-              <tr><td>Predetermination / advanced EOB</td><td>Reserved</td><td>Planned</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    <section style="background:#0a0a0a;">
-      <div class="section-wrapper">
-        <div class="section-header">
-          <span class="section-eyebrow">Transactions</span>
-          <h2 class="section-title">Dental X12, generated in-house.</h2>
-          <p class="section-subtitle">CloudDentalOffice.EdiCommon is a clean-room parser and generator. No vendor SDK in the claim path.</p>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card"><h3>837D</h3><p>Dental claim generation from the practice record. Submit to Cloud Health Office. Follow the claim in the portal through intelligence, not raw X12.</p></div>
-          <div class="feature-card"><h3>270 / 271</h3><p>Eligibility verification. The EligibilityService exists. Live payer routing is in progress. We do not claim real-time coverage we have not finished.</p></div>
-          <div class="feature-card"><h3>835 / ERA</h3><p>Remittance processing, claim matching, auto-posting to the patient ledger. Posted billed, insurance, and contractual amounts.</p></div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="section-wrapper">
-        <div class="section-header" style="text-align:left;">
-          <span class="section-eyebrow">Sister platform</span>
-          <h2 class="section-title">Cloud Health Office for payers.</h2>
-          <p class="section-subtitle" style="margin:0; max-width:none;">Together they close provider ↔ payer interoperability. The browser never calls Cloud Health Office. The portal does.</p>
+
+    <section aria-labelledby="founder-heading">
+      <div class="section-wrapper founder">
+        <div>
+          <span class="section-eyebrow">Founder</span>
+          <h2 id="founder-heading" class="section-title">Mark Phillips</h2>
+          <p>Mark has spent more than 25 years building healthcare payer core systems: the claims engines that insurers run. That work includes TriZetto/QNXT and Molina, and he is a co-inventor on the MyQNXT patent.</p>
+          <p>That work sits on the payer side, in the software that receives a claim, checks it, and decides what gets paid. After a career there, you learn why claims get denied.</p>
+          <p>Cloud Dental Office points that knowledge the other way. It is software that helps dentists get paid.</p>
         </div>
         <div class="feature-card">
-          <pre><code>CloudDentalOffice
-  → submit claim to CloudHealthOffice
-  → GET /api/claims/{claimId}/intelligence
-  → practice-facing lifecycle
-     (status, timeline, patient responsibility)
-  → post billed / insurance / contractual amounts
-     to the patient ledger</code></pre>
-          <p>Configure CloudHealthOffice BaseUrl, IntelligencePath, and Enabled. Override the base URL when the payer platform uses a different namespace.</p>
-          <p><a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com &rarr;</a> · <a href="https://github.com/aurelianware/cloudhealthoffice" target="_blank" rel="noopener noreferrer">github.com/aurelianware/cloudhealthoffice &rarr;</a></p>
+          <h3>At a glance</h3>
+          <ul class="benefit-list">
+            <li>25+ years in healthcare payer core systems</li>
+            <li>TriZetto/QNXT</li>
+            <li>Molina</li>
+            <li>Co-inventor, MyQNXT patent</li>
+          </ul>
         </div>
       </div>
     </section>
-    <section class="cta-section" style="margin:80px auto; max-width:1100px;">
-      <h2 style="color:#fff; text-shadow:none;">Inspect the claim path. Then talk.</h2>
-      <p>No invented clearinghouse certifications. No invented volumes.</p>
+
+    <section aria-labelledby="company-heading" class="band band--dark">
+      <div class="section-wrapper">
+        <div class="section-header section-header--left">
+          <span class="section-eyebrow">Company</span>
+          <h2 id="company-heading" class="section-title">Aurelianware, Inc.</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card"><h3>Cloud Dental Office</h3><p>The practice side: scheduling, patients, claims, and payments for dental offices.</p></div>
+          <div class="feature-card"><h3>Cloud Health Office</h3><p>The payer side: the claims and payer-connectivity platform that Cloud Dental Office submits claims through. <a href="https://cloudhealthoffice.com" target="_blank" rel="noopener noreferrer">cloudhealthoffice.com</a></p></div>
+          <div class="feature-card"><h3>How we talk</h3><p>No invented metrics, customers, or certifications. If something isn&rsquo;t built, the <a href="/features">features page</a> says so. The source is <a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="next-step" aria-labelledby="about-cta">
+      <h2 id="about-cta">Talk to the founder directly.</h2>
+      <p>Founding practices work with Mark from the first day.</p>
       <div class="hero-cta">
-        <a href="/contact" class="button">Talk about a pilot &rarr;</a>
-        <a href="https://github.com/aurelianware/clouddentaloffice" class="button button-secondary" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a>
+        <a href="/pilot" class="button">Join the founding-practice pilot &rarr;</a>
+        <a href="/contact" class="button button-secondary">Contact</a>
       </div>
     </section>
 

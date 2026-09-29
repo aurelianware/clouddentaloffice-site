@@ -485,6 +485,13 @@ blockquote {
   color: var(--light-gray);
 }
 
+/* Long unbroken strings (repo URLs, hostnames) in running text wrap instead of
+   widening the page on phones. */
+main p,
+main li {
+  overflow-wrap: anywhere;
+}
+
 /* === CODE === */
 code {
   background: var(--dark-gray);
@@ -501,6 +508,7 @@ pre {
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   overflow-x: auto;
+  max-width: 100%;
   margin: var(--spacing-md) 0;
 }
 
@@ -963,7 +971,7 @@ hr {
 
 .feature-card p {
   font-size: 0.93rem;
-  color: rgba(176, 176, 176, 0.68);
+  color: #a8a8a8;
   line-height: 1.65;
   margin: 0;
 }
@@ -1199,7 +1207,7 @@ footer.site-footer {
 
 .footer-brand p {
   font-size: 0.88rem;
-  color: rgba(128, 128, 128, 0.75);
+  color: #a3a3a3;
   line-height: 1.65;
   margin-bottom: 14px;
 }
@@ -1224,7 +1232,7 @@ footer.site-footer {
 }
 
 .footer-col a {
-  color: rgba(128, 128, 128, 0.75);
+  color: #a3a3a3;
   font-size: 0.88rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -1246,7 +1254,7 @@ footer.site-footer {
 
 .footer-bottom p {
   font-size: 0.82rem;
-  color: rgba(128, 128, 128, 0.5);
+  color: #949494;
   margin: 0;
 }
 
