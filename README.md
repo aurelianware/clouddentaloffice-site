@@ -27,6 +27,31 @@ Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/a
 | `/contact` | Pilot inquiry — mailto, nothing stored on this site |
 | `/privacy` | Marketing-site privacy notes |
 
+## Brand assets
+
+`graphics/brand/` holds the brand kit as delivered (source of truth; do not
+redraw, recolor, or re-crop): `cdo-icon`, `cdo-logo-horizontal-{light,dark}-bg`,
+`cdo-logo-stacked-{light,dark}-bg`, each as SVG and PNG, plus the whole set as
+`cdo-brand-kit.zip`. The site is dark-only, so it uses the `dark-bg` variants.
+
+Derived from those files:
+
+- `favicon.svg`: `cdo-icon.svg` with its viewBox widened to a square (transparent padding, art unchanged).
+- `favicon.ico` (16/32/48), `icon-192.png`, `icon-512.png`: `favicon.svg` rasterized.
+- `apple-touch-icon.png`: `cdo-icon.svg` centered on navy `#06101a` (iOS has no transparency).
+- `graphics/og-image.png` (1200×630): the horizontal dark-bg logo centered on the hero background.
+
+`/css/*`, `/js/*`, and `/graphics/*` are cached as immutable for a year
+(`_headers`), so a changed file needs a new URL or returning visitors keep the
+old one. Give a replaced brand file a new filename. After editing
+`css/sentinel.css`, update the `?v=` on its `<link>` in every page to the new
+content hash:
+
+```sh
+H=$(sha256sum css/sentinel.css | cut -c1-8)
+sed -i -E "s|/css/sentinel\.css(\?v=[0-9a-f]+)?\"|/css/sentinel.css?v=$H\"|" *.html
+```
+
 ## Deploy — Cloudflare Pages
 
 Static files, no build step. Cloudflare Pages serves `_headers` natively and

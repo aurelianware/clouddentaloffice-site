@@ -316,43 +316,39 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
+/* Brand lockup (graphics/brand/cdo-logo-horizontal-dark-bg.svg, 1278x294).
+   Height drives size; width follows the intrinsic aspect ratio. Below 360px the
+   <picture> swaps in the shield alone (cdo-icon.svg). */
+.nav-logo picture {
+  display: block;
+  line-height: 0;
+}
+
 .nav-logo-img {
-  height: 36px;
+  display: block;
+  height: 44px;
   width: auto;
   border-radius: 0;
 }
 
-.nav-logo-lockup {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.15;
-}
-
-.nav-logo-text {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 1px;
-  text-shadow: none;
-  white-space: nowrap;
-}
-
-/* Category line under the logo — locked message, shown on wider viewports. */
+/* Category line beside the logo — locked message, shown on wide viewports. */
 .nav-logo-tagline {
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.2px;
+  line-height: 1.3;
   color: rgba(0, 255, 200, 0.7);
-  white-space: nowrap;
+  max-width: 190px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(0, 255, 255, 0.2);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .nav-logo-tagline {
     display: none;
   }
@@ -705,7 +701,7 @@ hr {
 }
 
 .hero-logo {
-  width: 180px;
+  width: 320px;
   height: auto;
   margin: 0 auto 40px auto;
   display: block;
@@ -1190,6 +1186,17 @@ footer.site-footer {
   letter-spacing: 0.5px;
 }
 
+.footer-logo {
+  display: inline-block;
+  line-height: 0;
+}
+
+.footer-logo img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
 .footer-brand p {
   font-size: 0.88rem;
   color: rgba(128, 128, 128, 0.75);
@@ -1379,7 +1386,7 @@ footer.site-footer {
   }
 
   .hero-logo {
-    width: 140px;
+    width: 240px;
   }
 
   .stats-section {

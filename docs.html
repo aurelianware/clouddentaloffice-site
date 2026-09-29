@@ -6,7 +6,10 @@
   <title>Docs / start — Cloud Dental Office</title>
   <meta name="description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
   <link rel="canonical" href="https://clouddentaloffice.com/docs" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#000000" />
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
@@ -14,10 +17,15 @@
   <meta property="og:url" content="https://clouddentaloffice.com/docs" />
   <meta property="og:title" content="Docs / start — Cloud Dental Office" />
   <meta property="og:description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
-  <meta property="og:image" content="https://clouddentaloffice.com/graphics/logo.svg" />
+  <meta property="og:image" content="https://clouddentaloffice.com/graphics/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Docs / start — Cloud Dental Office" />
   <meta name="twitter:description" content="Clone Cloud Dental Office, run Docker Compose or local Kubernetes, and read the public availability contract. Apache 2.0." />
+  <meta name="twitter:image" content="https://clouddentaloffice.com/graphics/og-image.png" />
+  <meta name="twitter:image:alt" content="Cloud Dental Office" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,7 +40,7 @@
     "sameAs": ["https://github.com/aurelianware/clouddentaloffice"]
   }
   </script>
-  <link rel="stylesheet" href="/css/sentinel.css" />
+  <link rel="stylesheet" href="/css/sentinel.css?v=3457f54d" />
   <link rel="stylesheet" href="/css/conversion.css" />
   <script src="/js/mobile-nav.js"></script>
   
@@ -41,12 +49,12 @@
   <a href="#main-content" class="skip-to-main">Skip to main content</a>
   <nav>
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Cloud Dental Office home">
-        <img src="/graphics/logo.svg" alt="" class="nav-logo-img" aria-hidden="true" />
-        <span class="nav-logo-lockup">
-          <span class="nav-logo-text">Cloud Dental Office</span>
-          <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
-        </span>
+      <a href="/" class="nav-logo">
+        <picture>
+          <source media="(max-width: 359px)" srcset="/graphics/brand/cdo-icon.svg" width="400" height="480" />
+          <img src="/graphics/brand/cdo-logo-horizontal-dark-bg.svg" alt="Cloud Dental Office" class="nav-logo-img" width="1278" height="294" />
+        </picture>
+        <span class="nav-logo-tagline">Practice platform. System of record. Partners stay at the edge.</span>
       </a>
       <div class="nav-right">
         <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuToggle">&#9776;</button>
@@ -137,7 +145,7 @@ docker-compose up -d</code></pre>
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h4>Cloud Dental Office</h4>
+          <h4><a href="/" class="footer-logo"><img src="/graphics/brand/cdo-logo-horizontal-dark-bg.svg" alt="Cloud Dental Office" width="1278" height="294" /></a></h4>
           <p>The system of record for a dental practice. Scheduling, patients, claims, eligibility, and ERAs in one inspectable platform.</p>
           <p style="font-size:0.82rem; color:rgba(128,128,128,0.45);">Apache 2.0 &nbsp;&middot;&nbsp; Source-available &nbsp;&middot;&nbsp; Aurelianware, Inc.</p>
           <p style="margin-top:14px;"><a href="https://github.com/aurelianware/clouddentaloffice" target="_blank" rel="noopener noreferrer">View source on GitHub &rarr;</a></p>
