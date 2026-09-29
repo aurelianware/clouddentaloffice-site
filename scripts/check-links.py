@@ -3,7 +3,8 @@
 
 Resolves every internal href/src in every *.html file the way Cloudflare
 Pages serves them, and fails if any target is missing. Also checks
-sitemap.xml and robots.txt, and guards against the .html rewrite rules
+sitemap.xml and robots.txt, rejects the retired clouddentaloffice.com
+address, and guards against the .html rewrite rules
 that caused the redirect loop.
 
 Rules:
@@ -34,11 +35,13 @@ META_URL_PROPS = {"og:image", "og:url", "twitter:image"}
 EXTERNAL = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|//)", re.I)
 # Absolute URLs on these hosts are checked as internal links.
 OWN_HOSTS = {
-    "clouddentaloffice.com",
-    "www.clouddentaloffice.com",
     "clouddental.io",
     "clouddentaloffice-www.pages.dev",
 }
+# The old address. It no longer resolves, so any reference to it (canonical,
+# og:image, JSON-LD, a bare hostname in a form field or copy) is wrong. Matched
+# in raw page text, not just attributes, and without requiring a URL prefix.
+RETIRED_HOST = re.compile(r"\bclouddentaloffice\.com\b", re.I)
 
 
 class Collector(HTMLParser):
@@ -97,12 +100,16 @@ def resolve(path):
 
 def main():
     parsed = {}
-    for f in html_files():
-        c = Collector()
-        c.feed(f.read_text(encoding="utf-8"))
-        parsed[f] = c
-
     errors = []
+    for f in html_files():
+        text = f.read_text(encoding="utf-8")
+        c = Collector()
+        c.feed(text)
+        parsed[f] = c
+        for n, line in enumerate(text.splitlines(), 1):
+            if RETIRED_HOST.search(line):
+                errors.append(f"{f.relative_to(ROOT)}:{n}: references clouddentaloffice.com, which is retired; use https://clouddental.io")
+
     checked = 0
     for page, c in parsed.items():
         page_rel = page.relative_to(ROOT)

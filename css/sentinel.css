@@ -322,7 +322,7 @@ nav {
 }
 
 /* Brand lockup (graphics/brand/cdo-logo-horizontal-dark-bg.svg, 1278x294).
-   Height drives size; width follows the intrinsic aspect ratio. Below 360px the
+   Height drives size; width follows the intrinsic aspect ratio. Below 330px the
    <picture> swaps in the shield alone (cdo-icon.svg). */
 .nav-logo picture {
   display: block;

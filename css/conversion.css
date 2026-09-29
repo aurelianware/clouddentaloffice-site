@@ -160,6 +160,10 @@
 /* === LEAD FORM (shared LeadForm component) === */
 .cho-leadform {
   display: grid;
+  /* minmax(0, 1fr) and min-width: 0 let rows shrink below their inputs'
+     intrinsic width. Without them Safari's wider default input size pushes
+     the fields past the card on narrow screens. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(0, 255, 255, 0.15);
@@ -181,10 +185,15 @@
   margin-bottom: 6px;
 }
 
+.cho-leadform > * {
+  min-width: 0;
+}
+
 .cho-leadform input,
 .cho-leadform select,
 .cho-leadform textarea {
   width: 100%;
+  min-width: 0;
   padding: 11px 14px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(0, 255, 255, 0.2);
