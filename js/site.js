@@ -16,6 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   }
 
+  // TODO(zocdoc-referral): set to the referral landing page Zocdoc provides at
+  // launch. While empty, [data-zocdoc-referral] stays plain text with no link.
+  const ZOCDOC_REFERRAL_URL = "";
+  if (ZOCDOC_REFERRAL_URL) {
+    document.querySelectorAll("[data-zocdoc-referral]").forEach((el) => {
+      const a = document.createElement("a");
+      a.href = ZOCDOC_REFERRAL_URL;
+      a.rel = "noopener noreferrer";
+      a.textContent = "Get listed on Zocdoc";
+      el.textContent = "Not on Zocdoc yet? ";
+      el.append(a, ".");
+    });
+  }
+
   const form = document.getElementById("contact-form");
   if (!form) return;
   // The markup uses native `required` validation so the no-JS post to Formspree

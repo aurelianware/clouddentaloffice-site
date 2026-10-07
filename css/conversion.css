@@ -376,6 +376,7 @@ nav a[aria-current="page"] { color: var(--neon-cyan); }
 .hero-note { margin: 0; font-size: 0.9rem; color: #a8a8a8; }
 .lede { font-size: 1.2rem; line-height: 1.7; color: #e6e6e6; }
 .fine-print { font-size: 0.85rem; color: #a3a3a3; margin-top: 24px; }
+.zocdoc-referral, .feature-card .zocdoc-referral { font-size: 0.9rem; color: #a3a3a3; margin-top: 16px; }
 .h-small { font-size: 1.2rem; color: #fff; text-shadow: none; margin: 0 0 12px 0; }
 .accent { color: var(--neon-cyan); }
 .page-title { font-size: clamp(2rem, 4.5vw, 3.4rem); }
