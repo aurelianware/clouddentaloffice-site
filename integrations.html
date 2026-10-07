@@ -228,7 +228,9 @@
             <span class="status status--progress">In progress</span>
             <h2 id="stripe-heading" class="section-title">Stripe</h2>
             <p class="lede">Patients pay their balance online, into your own account.</p>
-            <p>Your practice connects its own Stripe account. Patients pay on Stripe&rsquo;s hosted checkout page, and the money settles in your account, not ours. The payment posts to the patient&rsquo;s ledger only after Stripe confirms it. Card numbers never touch Cloud Dental Office.</p>
+            <p>Your practice connects its own Stripe account. Patients pay on Stripe&rsquo;s hosted checkout page, and the money goes directly to your practice&rsquo;s account, not ours. The payment posts to the patient&rsquo;s ledger only after Stripe confirms it. Card numbers never touch Cloud Dental Office.</p>
+            <p><strong>Separate from Zocdoc:</strong> Stripe is not part of the Zocdoc integration. No Zocdoc booking data is shared with Stripe, and no card or deposit is collected when a patient books on Zocdoc.</p>
+            <!-- TODO(subscription-billing): add "Practices also pay their Cloud Dental Office subscription through Stripe." once subscription billing at signup is built in aurelianware/clouddentaloffice. -->
             <p>Built and tested in Stripe&rsquo;s test environment. The first live payments come with the pilot.</p>
           </div>
           <div class="feature-card">
