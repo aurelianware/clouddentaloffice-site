@@ -10,7 +10,7 @@ Sister to [cloudhealthoffice.com](https://cloudhealthoffice.com) (`src/site/` in
 
 ## What this is
 
-The marketing site for Cloud Dental Office, a source-available dental practice platform (Business Source License 1.1; see the product [LICENSING.md](https://github.com/aurelianware/clouddentaloffice/blob/main/LICENSING.md)). Cloud Dental Office is the system of record. Practice websites and marketplace partners read a vendor-neutral public availability contract and submit booking intent. They never become the calendar. They never see PHI.
+The marketing site for Cloud Dental Office, a source-available dental practice platform (Business Source License 1.1; see the product [LICENSING.md](https://github.com/aurelianware/clouddentaloffice/blob/main/LICENSING.md)). Cloud Dental Office is the system of record. Practice websites read a vendor-neutral public availability contract and submit booking requests that staff approve. Marketplace channels such as Zocdoc publish from the same availability engine and confirm bookings after re-checking the slot. They never become the calendar, and they never receive the practice's existing patient records.
 
 Product source: [github.com/aurelianware/clouddentaloffice](https://github.com/aurelianware/clouddentaloffice)
 

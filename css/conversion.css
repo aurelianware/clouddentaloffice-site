@@ -337,6 +337,7 @@ nav a[aria-current="page"] { color: var(--neon-cyan); }
 }
 .status--ready { color: var(--neon-green); border-color: rgba(0, 255, 136, 0.5); background: rgba(0, 255, 136, 0.08); }
 .status--progress { color: #ffd166; border-color: rgba(255, 209, 102, 0.5); background: rgba(255, 209, 102, 0.08); }
+.status--pilot { color: var(--neon-cyan); border-color: rgba(0, 255, 255, 0.5); background: rgba(0, 255, 255, 0.08); }
 .status--reserved { color: #c8c8c8; border-color: rgba(200, 200, 200, 0.4); background: rgba(200, 200, 200, 0.06); }
 .benefit-list--progress li::before { content: '\25D0'; color: #ffd166; }
 .benefit-list--reserved li::before { content: '\25CB'; color: #c8c8c8; }
@@ -375,6 +376,7 @@ nav a[aria-current="page"] { color: var(--neon-cyan); }
 .hero-note { margin: 0; font-size: 0.9rem; color: #a8a8a8; }
 .lede { font-size: 1.2rem; line-height: 1.7; color: #e6e6e6; }
 .fine-print { font-size: 0.85rem; color: #a3a3a3; margin-top: 24px; }
+.zocdoc-referral, .feature-card .zocdoc-referral { font-size: 0.9rem; color: #a3a3a3; margin-top: 16px; }
 .h-small { font-size: 1.2rem; color: #fff; text-shadow: none; margin: 0 0 12px 0; }
 .accent { color: var(--neon-cyan); }
 .page-title { font-size: clamp(2rem, 4.5vw, 3.4rem); }
@@ -427,3 +429,22 @@ main td a,
 }
 
 .cta-section .hero-cta { margin-bottom: 0; }
+
+/* Opt-in checkbox on the contact form (inputs are width: 100% by default). */
+.cho-leadform label.cho-leadform__check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e6e6e6;
+  font-size: 0.93rem;
+  font-weight: 600;
+  margin: 4px 0 0 0;
+  cursor: pointer;
+}
+.cho-leadform .cho-leadform__check input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: none;
+  accent-color: var(--neon-cyan);
+}

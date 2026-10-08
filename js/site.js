@@ -16,11 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   }
 
+  // TODO(zocdoc-referral): set to the referral landing page Zocdoc provides at
+  // launch. While empty, [data-zocdoc-referral] stays plain text with no link.
+  const ZOCDOC_REFERRAL_URL = "";
+  if (ZOCDOC_REFERRAL_URL) {
+    document.querySelectorAll("[data-zocdoc-referral]").forEach((el) => {
+      const a = document.createElement("a");
+      a.href = ZOCDOC_REFERRAL_URL;
+      a.rel = "noopener noreferrer";
+      a.textContent = "Get listed on Zocdoc";
+      el.textContent = "Not on Zocdoc yet? ";
+      el.append(a, ".");
+    });
+  }
+
   const form = document.getElementById("contact-form");
   if (!form) return;
   // The markup uses native `required` validation so the no-JS post to Formspree
   // is still checked. With the script running, show our own messages instead.
   form.noValidate = true;
+
+  // "Join the Zocdoc pilot" links arrive as /contact?interest=zocdoc.
+  const zocdoc = document.getElementById("c-zocdoc");
+  if (zocdoc && new URLSearchParams(location.search).get("interest") === "zocdoc") zocdoc.checked = true;
   const SALES = "sales@cloudhealthoffice.com";
   const submit = document.getElementById("contact-submit");
   const err = document.getElementById("contact-error");
@@ -54,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fallback if Formspree is unreachable or rejects the post: a prefilled message
     // to the same inbox, so the inquiry is never lost.
     const subject = encodeURIComponent("Pilot inquiry — " + practice);
-    const body = encodeURIComponent("Name: " + name + "\nPractice: " + practice + "\nEmail: " + email + "\n\n" + message);
+    const body = encodeURIComponent("Name: " + name + "\nPractice: " + practice + "\nEmail: " + email +
+      (zocdoc && zocdoc.checked ? "\nZocdoc pilot: yes" : "") + "\n\n" + message);
     const mailto = "mailto:" + SALES + "?subject=" + subject + "&body=" + body;
 
     submit.disabled = true;

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zocdoc, Stedi, and Stripe integrations — Cloud Dental Office</title>
-  <meta name="description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
+  <meta name="description" content="How Zocdoc, your practice website, and Cloud Health Office connect to the Cloud Dental Office schedule, how Stripe handles payments, and what each one can see. The Zocdoc booking pilot starts October 2026." />
   <link rel="canonical" href="https://clouddental.io/integrations" />
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -16,14 +16,14 @@
   <meta property="og:site_name" content="Cloud Dental Office" />
   <meta property="og:url" content="https://clouddental.io/integrations" />
   <meta property="og:title" content="Zocdoc, Stedi, and Stripe integrations — Cloud Dental Office" />
-  <meta property="og:description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
+  <meta property="og:description" content="How Zocdoc, your practice website, and Cloud Health Office connect to the Cloud Dental Office schedule, how Stripe handles payments, and what each one can see. The Zocdoc booking pilot starts October 2026." />
   <meta property="og:image" content="https://clouddental.io/graphics/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cloud Dental Office" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Zocdoc, Stedi, and Stripe integrations — Cloud Dental Office" />
-  <meta name="twitter:description" content="How Zocdoc, your practice website, Cloud Health Office, and Stripe connect to the Cloud Dental Office schedule and ledger, and what each one can see." />
+  <meta name="twitter:description" content="How Zocdoc, your practice website, and Cloud Health Office connect to the Cloud Dental Office schedule, how Stripe handles payments, and what each one can see. The Zocdoc booking pilot starts October 2026." />
   <meta name="twitter:image" content="https://clouddental.io/graphics/og-image.png" />
   <script type="application/ld+json">
   {
@@ -90,7 +90,7 @@
   }
   </script>
   <link rel="stylesheet" href="/css/sentinel.css?v=ce16647e" />
-  <link rel="stylesheet" href="/css/conversion.css?v=274d624d" />
+  <link rel="stylesheet" href="/css/conversion.css?v=aafaa3a4" />
   <script src="/js/mobile-nav.js?v=488e7d25" defer></script>
 </head>
 <body>
@@ -144,24 +144,25 @@
         <div class="integration">
           <div>
             <!-- TODO: approved partner logo -->
-            <span class="status status--progress">In progress</span>
+            <span class="status status--pilot">Pilot &middot; October 2026</span>
             <h2 id="zocdoc-heading" class="section-title">Zocdoc</h2>
             <p class="lede">New patients book through Zocdoc and land on your schedule.</p>
-            <p>Your open times on Zocdoc come from the same calendar your staff work from, the same one your website booking reads. When a time is booked or blocked in the office, it comes off Zocdoc. When a patient books on Zocdoc, the appointment comes back to your schedule with the patient attached.</p>
+            <p>Cloud Dental Office connects through Zocdoc&rsquo;s scheduling API. Your open times on Zocdoc come from the same calendar your staff work from, the same one your website booking reads. When a time is booked or blocked in the office, it comes off Zocdoc. When a patient books on Zocdoc, the appointment comes back to your schedule with the patient attached.</p>
             <p><strong>Confirmation:</strong> Zocdoc bookings are confirmed automatically. Before an appointment is confirmed, the time is re-checked against your calendar; if it&rsquo;s no longer open, the booking isn&rsquo;t made. Unlike website requests, your staff don&rsquo;t approve each Zocdoc booking first.</p>
-            <p>Built and tested against Zocdoc&rsquo;s sandbox. Going live for a practice needs Zocdoc&rsquo;s approval. A Zocdoc scheduling integration is in pilot with <a href="/pilot">3rd Set Smiles</a>.</p>
+            <p>Zocdoc has agreed to a pilot of this integration starting in October 2026, and <a href="/pilot">3rd Set Smiles</a> is the first dental practice in it. We&rsquo;re inviting more practices already listed on Zocdoc to join.</p>
+            <p><a href="/contact?interest=zocdoc" class="button">Join the Zocdoc pilot &rarr;</a></p>
+            <p class="zocdoc-referral" data-zocdoc-referral>Not on Zocdoc yet? A Zocdoc referral link for new practices is coming at launch.</p>
           </div>
           <div class="feature-card">
-            <h3>What Zocdoc can and can&rsquo;t see</h3>
+            <h3>What&rsquo;s shared with Zocdoc</h3>
             <ul class="benefit-list">
               <li>Sees: the open times you publish, by provider, location, and visit type.</li>
               <li>Doesn&rsquo;t see: your patient records, charts, or other appointments.</li>
               <li>Cancellations and reschedules stay in step both ways.</li>
-              <li>If Zocdoc is down, your schedule keeps working.</li>
+              <li>If the connection to Zocdoc is interrupted, your schedule keeps working.</li>
             </ul>
           </div>
         </div>
-        <p class="fine-print">Zocdoc is a separate company. Using its scheduling API is not an endorsement by Zocdoc, and we don&rsquo;t claim a partnership or certification.</p>
       </div>
     </section>
 
@@ -227,7 +228,8 @@
             <span class="status status--progress">In progress</span>
             <h2 id="stripe-heading" class="section-title">Stripe</h2>
             <p class="lede">Patients pay their balance online, into your own account.</p>
-            <p>Your practice connects its own Stripe account. Patients pay on Stripe&rsquo;s hosted checkout page, and the money settles in your account, not ours. The payment posts to the patient&rsquo;s ledger only after Stripe confirms it. Card numbers never touch Cloud Dental Office.</p>
+            <p>Your practice connects its own Stripe account. Patients pay on Stripe&rsquo;s hosted checkout page, and the money goes directly to your practice&rsquo;s account, not ours. The payment posts to the patient&rsquo;s ledger only after Stripe confirms it. Card numbers never touch Cloud Dental Office.</p>
+            <p><strong>Separate from Zocdoc:</strong> Stripe is not part of the Zocdoc integration. No Zocdoc booking data is shared with Stripe, and no card or deposit is collected when a patient books on Zocdoc.</p>
             <p>Built and tested in Stripe&rsquo;s test environment. The first live payments come with the pilot.</p>
           </div>
           <div class="feature-card">
@@ -298,6 +300,6 @@
       </div>
     </div>
   </footer>
-  <script src="/js/site.js?v=d17da8e6" defer></script>
+  <script src="/js/site.js?v=be3b5d1f" defer></script>
 </body>
 </html>
